@@ -9,7 +9,7 @@ tags: [bee]    # TAG names should always be lowercase
 
 ```python3
 
-# Leer el archivo
+# Leer archivo
 lc_data2 = pd.read_csv('../images3/lc139.data', delim_whitespace=True, header=None)
 
 
