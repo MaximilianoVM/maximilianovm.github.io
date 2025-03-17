@@ -7,7 +7,7 @@ tags: [bee]    # TAG names should always be lowercase
 
 # Prueba: 3 sigma rejection para mis curvas de luz generadas por ISIS
 
-```python3
+```python
 
 # Leer archivo
 lc_data2 = pd.read_csv('../images3/lc139.data', delim_whitespace=True, header=None)
