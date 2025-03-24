@@ -41,11 +41,11 @@ Pero todo esto se explica en el manual. El primer problema con el que nos encont
 
 ## Marco Histórico  
 
-No conozco mucha gente que use el programa, solamente a un optico que conocí en una junta de la Asamblea Estudiantil para quejarnos del transporte publico y a otro astronomo, de cuya existencia solamente me cuenta mi asesor pero nunca se encuentra en el instituto. Escribo esto con la intención de pasarlo a colegas que lo intenten usar, o para que con suerte salga en una busqueda desesperada en google. 
+No conozco mucha gente que use el programa. Solamente a un optico que conocí en una junta de la Asamblea Estudiantil, para quejarnos del transporte publico. También a otro astronomo, de cuya existencia solamente me cuenta mi asesor, pero nunca se encuentra en el instituto. Escribo esto con la intención de pasarlo a colegas que lo intenten usar, o para que con suerte salga en una busqueda desesperada en google. 
 
-Al optico que menciono le comenté de pura casualidad en lo que estaba trabajando, intentando correr ISIS sin exito. El me mencionó que lo había requerido para un verano de investigación, y coincidió con el desastre que esto implica. En su caso había sido necesario formatearle el disco duro con un sistema algo mas antiguo. Dicha anecdota me abrumó, no me sobran equipos y necesito mantener mi laptop con su configuración actual, para una que otra cosa. 
+Al optico que menciono le comenté de pura casualidad en lo que en ese entonces yo estaba trabajando, intentando correr ISIS sin exito. Él me mencionó que lo había requerido para un verano de investigación, y coincidió con el desastre que esto implica. En su caso había sido necesario formatearle el disco duro con un sistema algo mas antiguo. Dicha anecdota me abrumó, no me sobran equipos y necesito mantener mi laptop con su configuración actual para una que otra cosa. 
 
-Justo por ese entonces estaba en mis primeros meses como voluntario en el Grupo de Ecología y Conservación de Islas (GECI) en el equipo de ciencia de datos, para liberar mis prácticas por medio de un PVVC. Ahi es de vital importancia el uso de Docker para el flujo de trabajo del día a día y llevaba un rato viendo tutoriales al respecto. 
+Justo por ese entonces estaba en mis primeros meses como voluntario en el Grupo de Ecología y Conservación de Islas [GECI](https://islas.org.mx/#gsc.tab=0) en el equipo de [ciencia de datos](https://islas.dev/blog/), para liberar mis prácticas por medio de un PVVC. Ahi es de vital importancia el uso de Docker para el flujo de trabajo del día a día, y llevaba un rato viendo tutoriales al respecto. 
 
 ## Docker
 
