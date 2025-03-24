@@ -14,6 +14,20 @@ ISIS es un paquete (no relacionado con el grupo Estado Islámico de Irak y Siria
 
 Esto es especialmente util en Astronomía para la identificación de estrellas variables y asteroides, como se desarrolla en el propio manual oficial. En Astronomía, las catacteristicas globales que necesitamos hacer coincidir corresponden al seeing, posiciones y otras variaciones originadas por la atmosfera y las condiciones de observación.
 
+En este proposito nos ayuda la convolución, especificamente su kernel $K$, caracterizando dichas condiciones en la imagen de ciencia $I$ respecto a la de referencia $R$.
+
+$$
+  I \approx R \otimes K + B_{bg}
+$$
+
+$B_{bg}$: background
+
+la imagen de sustracción $D$: 
+
+$$
+  D = I - ( R \otimes K + B_{bg})
+$$
+
 Pero todo esto se explica en el manual. El primer problema con el que nos encontramos viene al intentar seguir sus pasos.
 
 No conozco mucha gente que use el programa, solamente a un optico que conocí en una junta de la Asamblea Estudiantil para quejarnos del transporte publico y a otro astronomo, de cuya existencia solamente me cuenta mi asesor pero nunca se encuentra en el instituto. Escribo esto con la intención de pasarlo a colegas que lo intenten usar, o para que con suerte salga en una busqueda desesperada en google. 
