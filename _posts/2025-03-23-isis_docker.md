@@ -6,7 +6,7 @@ tags: [Astronomía]    # TAG names should always be lowercase
 math: true
 image:
   path: assets/img/whale_eye.jpg
-  alt: whale_eye
+  alt: docker eye
 ---
 
 Si te has visto en la necesidad o preferencia de usar el paquete de sustracción de imagenes [ISIS Image Subtraction](https://www.iap.fr/useriap/alard/package.html) probablemente no hace falta que te hable de las complicaciónes que esta elección trae consigo. 
