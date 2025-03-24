@@ -2,7 +2,7 @@
 title: Contenedor Docker para ISIS Image Subtraction p.1
 date: 2025-03-23 21:06:00 -0700
 categories: [Astro, ISIS]
-tags: [Astronomía]    # TAG names should always be lowercase
+tags: [Astro, ISIS, Docker]    # TAG names should always be lowercase
 math: true
 image:
   path: assets/img/whale_eye.jpg
