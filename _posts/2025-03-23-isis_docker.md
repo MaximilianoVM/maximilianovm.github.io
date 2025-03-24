@@ -11,6 +11,8 @@ image:
 
 ## No te corre el `./process.csh` ?
 
+intento de comunicar [mi bitácora](https://veiled-foxtail-58f.notion.site/ISIS-docker-10747b4dc47e809c835ff61c5a42b4bf)
+
 Si te has visto en la necesidad o preferencia de usar el paquete de sustracción de imagenes [ISIS Image Subtraction](https://www.iap.fr/useriap/alard/package.html) probablemente no hace falta que te hable de las complicaciónes que esta elección trae consigo. 
 
 ISIS es un paquete (no relacionado con el grupo Estado Islámico de Irak y Siria) desarrollado para identificar variacones en una serie de imagenes. Esto se logra observando los residuos al sustraer una imagen de referencia con una de ciencia. Para que los resultados de la sustracción sean fructiferos, ambas imagenes, idealmente, deben coincidir en todas sus caracteristicas globales, garantizando que los residuos corresponan a una variación real del objeto de interés. 
