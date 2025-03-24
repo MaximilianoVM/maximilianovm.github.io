@@ -34,7 +34,7 @@ Al optico que menciono le comenté de pura casualidad en lo que estaba trabajand
 
 Justo por ese entonces estaba en mis primeros meses como voluntario en el Grupo de Ecología y Conservación de Islas (GECI) en el equipo de ciencia de datos, para liberar mis prácticas por medio de un PVVC. Ahi es de vital importancia el uso de Docker para el flujo de trabajo del día a día y llevaba un rato viendo tutoriales al respecto. 
 
-Para que sirve Docker? Es una herramienta ampliamente utilizada por equipos de desarrollo de software, soluciando problemas de compatibilidad y facilitanto el despliegue de aplicaciones. La cosa es que con ISIS nos encontramos justo con un problema de compatibilidad. El paquete fue hecho a finales de los 90s - principios de los 2000 sin el debido cuidado que el desarrollo de un paquete requiere para su perdurabilidad. 
+Para que sirve Docker? Es una herramienta ampliamente utilizada por equipos de desarrollo de software, soluciando problemas de compatibilidad y facilitanto el despliegue de aplicaciones. La cosa es que con ISIS nos encontramos justo con un problema de compatibilidad. El paquete fue hecho a finales de los 90s - principios de los 2000 sin el debido cuidado que el desarrollo de un paquete requiere para su perdurabilidad (ni hablar de su documentación, ese tema requiere otra entrada). 
 
 Como funciona Docker? En terminos prácticos, crea un contenedor a partir de un archivo Dockerfile. Este contenedor representa un espacio con sus propias dependencias (especificadas por nosotros en el Dockerfile) y un entorno muy controlado. En nuestro caso queremos simular un ambiente en el que ISIS pueda correr sin problema. 
 
