@@ -23,7 +23,7 @@ mkdir -p host_package  # Aquí verás los archivos de ISIS desde el host
 
 ## 2. Dockerfile (optimizado para persistencia)
 
-```bash
+```dockerfile
 
 # Usa CentOS 6
 FROM centos:6
