@@ -13,6 +13,8 @@ image:
 
 *Esto es un intento de comunicar [mi bitácora](https://veiled-foxtail-58f.notion.site/ISIS-docker-10747b4dc47e809c835ff61c5a42b4bf)*
 
+* _Desde OAN-SPM, [Telescopio de 2.1m](https://www.astrossp.unam.mx/es/usuarios/telescopios/tel2m)_
+
 ## ISIS 
 
 Si te has visto en la necesidad o preferencia de usar el paquete de sustracción de imagenes [ISIS Image Subtraction](https://www.iap.fr/useriap/alard/package.html) probablemente no hace falta que te hable de las complicaciónes que esta elección trae consigo. 
