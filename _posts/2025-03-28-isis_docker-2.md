@@ -16,73 +16,94 @@ image:
 ## 1. Estructura de directorios en tu host
 
 ```bash
-mkdir isis_project
-cd isis_project
-mkdir -p host_package  # Aquí verás los archivos de ISIS desde el host
+mkdir isis_env_full
+cd isis_env_full # aqui se debe encontrar el ISIS2.2.tar
+mkdir prueba_host  # Aquí verás los archivos de ISIS desde el host, aqui tambien va un  ISIS2.2.tar?
 ```
 
-## 2. Dockerfile (optimizado para persistencia)
+## 2. Dockerfile
 
 ```dockerfile
 
-# Usa CentOS 6
+# Utiliza la imagen oficial de CentOS 6
 FROM centos:6
 
-# Configura repositorios archivados
+# Reemplaza los repositorios de CentOS 6 por los repos archivados
 RUN sed -i 's|^mirrorlist=|#mirrorlist=|g' /etc/yum.repos.d/CentOS-Base.repo && \
     sed -i 's|^#baseurl=http://mirror.centos.org/centos/$releasever|baseurl=http://vault.centos.org/6.10|g' /etc/yum.repos.d/CentOS-Base.repo
 
-# Instala dependencias
-RUN yum install -y tcsh nano glibc.i686 vim awk emacs wget csh && \
-    yum groupinstall -y "Development Tools" && \
-    yum update -y
+# ====== Instala tcsh, nano y las bibliotecas de 32 bits *
+RUN yum install -y tcsh nano glibc.i686
 
-# Directorio de trabajo
-WORKDIR /isis_docker
+# Instala tcsh, nano, las bibliotecas de 32 bits, vim, awk y emacs
+RUN yum install -y tcsh nano glibc.i686 vim awk emacs
 
-# Copia el tar de ISIS
-COPY ISIS2.2.tar /isis_docker/
+# Actualiza los paquetes disponibles
+RUN yum update -y
 
-# Instala ISIS (durante el build)
-RUN tar -xvf ISIS2.2.tar && \
-    cd package && \
-    csh install.csh && \
-    chown -R root:root /isis_docker
+# Instala las herramientas básicas y GCC
+RUN yum groupinstall -y "Development Tools" \
+    && yum install -y wget csh
 
-# Ruta al ejecutable
-ENV PATH="/isis_docker/package/bin:/isis_docker/package/register*:$PATH"
+# ====== Establece el directorio de trabajo *
+WORKDIR /opt/isis
 
-# Punto de montaje para el volumen
-VOLUME /isis_docker/package
+# Copia el archivo tar de ISIS al contenedor (asegúrate de tenerlo en el mismo directorio que tu Dockerfile)
+COPY ISIS2.2.tar /opt/isis/
 
-# Comando por defecto
+# Extrae el archivo, ejecuta el script install.csh, y cambia permisos si es necesario
+RUN tar -xvf ISIS2.2.tar \
+    && cd package \
+    && csh install.csh \
+    && chown -R root:root /opt/isis
+
+# ====== Establece el PATH para incluir los directorios necesarios *
+ENV PATH="/opt/isis/package/bin:/opt/isis/package/register:$PATH"
+
+# ====== Cambia el directorio de trabajo *
+WORKDIR /opt/isis/package
+
+# ====== Define el comando por defecto para iniciar la shell *
 CMD ["/bin/bash"]
 
+
 ```
 
-## 3. Flujo de trabajo
-
+## 3. BUILD: Primera ejecución
+creación del contenedor
 ```bash
-# Construye la imagen
-docker build -t isis_image .
+docker build -t isis_env_image . 
 
 docker images # para comprobar
-
-# Ejecuta el contenedor y copia los archivos de ISIS a tu host
-docker run --name isis_temp isis_image true  # Contenedor efímero
-docker cp isis_temp:/isis_docker/package ./host_package
-docker rm isis_temp  # Elimina el contenedor temporal
 ```
-
-## Ejecución normal (con volumen persistente):
-
-
+### Ejecutar (sin volumen)
 ```bash
-docker run -it --name isis_container \
-  -v $(pwd)/host_package:/isis_docker/package \
-  isis_image
+docker run -it isis_env /bin/bash
 ```
 
+# Volumen
+```bash
+# evita problemas de rutas
+docker run -it --name isis_local_env -v $(pwd)/prueba_host:/containter_volume isis_env_image /bin/bash
+```
+desde el contenedor nos regresamos a `../../..containter_volume/package`
+
+## Permisos
+```bash
+# desde el prueba_host:
+sudo chmod -R a+rwx .
+```
+## ISIS en el Volume
+Añadimos el ISIS y extraemos desde host 
+```bash
+tar -xvf ISIS2.2.tar # Unpack
+
+# si se puede, solo sale error al principio: 
+xed install.csh short.h & 
+```
+- no corre en `./install`
+- si corre el `./process.csh`
+- si se pueden abrir desde xgterm los fits
 
 
 
