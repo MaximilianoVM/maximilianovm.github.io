@@ -1,5 +1,5 @@
 ---
-title: Contenedor Docker para ISIS Image Subtraction p.2
+title: Docker para ISIS Image Subtraction p.2: Docker y Contenedor
 date: 2025-03-28 15:02:00 -0700
 categories: [Astro, ISIS]
 tags: [Astro, ISIS, Docker]    # TAG names should always be lowercase
@@ -13,7 +13,40 @@ image:
 
 *Esto es un intento de comunicar [mi bitácora](https://veiled-foxtail-58f.notion.site/ISIS-docker-10747b4dc47e809c835ff61c5a42b4bf)*
 * _desde IA-UNAM Ensenada._
+
+Notas: 
+* En Linux Mint 21.3 Cinnamon
+* Se asume que ya cuentas con IRAF en tu equipo
+
+# Instalación de Docker
+Sigue el tutorial con la propia [documentación de Docker](https://docs.docker.com/engine/install/)
+
+Si te sale un error al hacer el build del tipo: 
+
+> ERROR: permission denied while trying to connect to the Docker daemon socket at unix
+
+Puedes probar con la siguiente solución: 
+
+```bash
+sudo chmod 777 /var/run/docker.sock
+```
+
+Una vez que hayas concluído el tutorial, puedes comprobar la correcta instalación ejecutando la imagen `hello-world`: 
+
+```bash
+sudo docker run hello-world
+```
+
+# Construcción de nuestro entorno de trabajo
+
+A este punto ya deberías tener tu archivo `ISIS2.2.tar`, descargado desde la pagina oficial. 
+
 ## 1. Estructura de directorios en tu host
+
+Nos vamos a colocar en nuestro entorno de trabajo, donde crearemos dos directorios: 
+
+* **`isis_env_full`**: Aquí van a ir nuestros archivos `Dockerfile` e `ISIS2.2.tar`
+* **`prueba_host`**: Aquí es donde vamos a interactuar con el paquete **ISIS**
 
 ```bash
 mkdir isis_env_full
@@ -22,7 +55,12 @@ mkdir prueba_host  # Aquí verás los archivos de ISIS desde el host, aqui tambi
 ```
 
 ## 2. Dockerfile
+Creamos nuestro archivo Dockerfile: 
+```bash
+touch Dockerfile
+```
 
+En el cual escribiremos lo siguiente: 
 ```dockerfile
 
 # Utiliza la imagen oficial de CentOS 6
@@ -66,16 +104,18 @@ WORKDIR /opt/isis/package
 # ====== Define el comando por defecto para iniciar la shell *
 CMD ["/bin/bash"]
 
-
 ```
 
 ## 3. BUILD: Primera ejecución
-creación del contenedor
+
+En el mismo directorio `isis_env_full` donde se deben encontrar el `Dockerfile` e `ISIS2.2.tar` vamos a ejecutar el contenedor con los siguientes comandos: 
+
 ```bash
 docker build -t isis_env_image . 
 
 docker images # para comprobar
 ```
+
 ### Ejecutar (sin volumen)
 ```bash
 docker run -it isis_env /bin/bash
