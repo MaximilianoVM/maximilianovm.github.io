@@ -1,5 +1,5 @@
 ---
-title: Docker para ISIS Image Subtraction p.2 Docker y Contenedor
+title: "Docker para ISIS Image Subtraction p.2: Docker y Contenedor"
 date: 2025-03-28 15:02:00 -0700
 categories: [Astro, ISIS]
 tags: [Astro, ISIS, Docker]    # TAG names should always be lowercase
