@@ -1,11 +1,13 @@
 ---
-title: Primera entrada
+title: pruebaprueba
 date: 2025-03-17 00:58:SS -0700
 categories: [Animal, Insect]
 tags: [bee]    # TAG names should always be lowercase
 ---
 
 # Prueba: 3 sigma rejection para mis curvas de luz generadas por ISIS
+
+pruebapruebapruebapruebapruebapruebapruebaprueba
 
 ```python
 
