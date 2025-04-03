@@ -21,6 +21,7 @@ Notas:
 # Instalación de Docker
 Sigue el tutorial con la propia [documentación de Docker](https://docs.docker.com/engine/install/)
 
+
 Si te sale un error al hacer el build del tipo: 
 
 > ERROR: permission denied while trying to connect to the Docker daemon socket at unix
@@ -39,7 +40,7 @@ sudo docker run hello-world
 
 # Construcción de nuestro entorno de trabajo
 
-A este punto ya deberías tener tu archivo `ISIS2.2.tar`, descargado desde la pagina oficial. 
+A este punto ya deberías tener tu archivo `ISIS2.2.tar`, descargado desde la [pagina oficial](https://www.iap.fr/useriap/alard/download.html). 
 
 ## 1. Estructura de directorios en tu host
 
@@ -110,35 +111,68 @@ CMD ["/bin/bash"]
 
 En el mismo directorio `isis_env_full` donde se deben encontrar el `Dockerfile` e `ISIS2.2.tar` vamos a ejecutar el contenedor con los siguientes comandos: 
 
+* Nombre de nuestra imagen: `isis_env_image`
+
 ```bash
 docker build -t isis_env_image . 
 
-docker images # para comprobar
+# para comprobar: 
+docker images # despliega una lista de nuestras imagenes
 ```
+Ya tenemos nuestra imagen, a partir de esta es de donde vamos a poder crear contenedores. 
+
+El comando  `run` es el encargado de esto. La forma mas simple de crear un contenedor a partir de nuestra imagen es la siguiente: 
 
 ### Ejecutar (sin volumen)
 ```bash
 docker run -it isis_env /bin/bash
 ```
+Esto creará un contenedor de acuerdo a las instrucciones que indicamos en el `Dockerfile`, al cual podremos acceder para trabajar dentro de su entorno. 
+
+La cosa con esto es que los archivos generados dentro del contenedor no se encontrarán disponibles tan facil desde nuestro entorno del día a día. Incluso, añadir archivos al entorno requiere el mismo nivel de molestia, lo cual es de especial preocupación si nuestro flujo de trabajo requiere la manipulación de distintos grupos de imagenes, que necesitaremos visualizar y procesar con IRAF en distintas partes del proceso. 
+
+Una solucion algo tediosa (que es lo que yo solía hacer al principio) implica copiar archivos hacia y desde el directorio con el [comando cp de docker](https://docs.docker.com/reference/cli/docker/container/cp/), algo parecido al de bash. 
+
+```docker
+docker container cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|- docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+
+```
+
+Sin embargo, hay una manera de garantizar que los archivos existan y sean accesibles de forma local y en el contenedor, de forma que cada cambio en uno sea visible inmediatamente en el otro. Esto se logra mediante (Volumenes)[https://docs.docker.com/engine/storage/volumes/]. 
 
 # Volumen
+
+### Ejecutar (en volumen)
 ```bash
-# evita problemas de rutas
-docker run -it --name isis_local_env -v $(pwd)/prueba_host:/containter_volume isis_env_image /bin/bash
+docker run -it --name isis_local_env -v $(pwd)/isis_host:/isis_container isis_env_image /bin/bash
 ```
-desde el contenedor nos regresamos a `../../..containter_volume/package`
+Esta acción: 
+* crea un contenedor llamado `isis_local_env`
+* crea una directorio local `isis_host`, que será el host local
+* crea un directorio dentro del contenedor, llamado `isis_container`
+* hace todo esto a partir de la imagen `isis_env_image`
+
+Recapitulando: **`isis_host`** e **`isis_container`** comparten contenido, en local y en el contenedor respectivamente.
+
+**Donde se encuentra isis_container?**
+Desde donde iniciamos en el contenedor nos regresamos a `../../..isis_container`
 
 ## Permisos
+Puede que te encuentres con un problema de permisos al intentar modificar o acceder a un archivo desde del host local, esto se soluciona con el siguiente comando: 
+
 ```bash
 # desde el prueba_host:
 sudo chmod -R a+rwx .
 ```
+
 ## ISIS en el Volume
+Si ya te encuentras en **`isis_container`** notarás que está vacío, hace falta añadir ahí el `ISIS2.2.tar` y extraerlo, esto lo puedes hacer ya desde el host o desde el container: 
+
 Añadimos el ISIS y extraemos desde host 
 ```bash
 tar -xvf ISIS2.2.tar # Unpack
 
-# si se puede, solo sale error al principio: 
+# archivos de configuracion
 xed install.csh short.h & 
 ```
 - no corre en `./install`
