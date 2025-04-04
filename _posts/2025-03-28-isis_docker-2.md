@@ -15,14 +15,14 @@ image:
 * _desde IA-UNAM Ensenada._
 
 Notas: 
-* En Linux Mint 21.3 Cinnamon
-* Se asume que ya cuentas con IRAF en tu equipo
+* 🍂 En Linux Mint 21.3 Cinnamon
+* 🌌 Se asume que ya cuentas con IRAF en tu equipo
 
-# Instalación de Docker
+# 🐋 Instalación de Docker
 Sigue el tutorial con la propia [documentación de Docker](https://docs.docker.com/engine/install/)
 
 
-Si te sale un error al hacer el build del tipo: 
+🔴 Si te sale un error al hacer el build del tipo: 
 
 > ERROR: permission denied while trying to connect to the Docker daemon socket at unix
 
@@ -32,17 +32,17 @@ Puedes probar con la siguiente solución:
 sudo chmod 777 /var/run/docker.sock
 ```
 
-Una vez que hayas concluído el tutorial, puedes comprobar la correcta instalación ejecutando la imagen `hello-world`: 
+Una vez que hayas concluído el tutorial, puedes comprobar la instalación ejecutando la imagen `hello-world`: 
 
 ```bash
 sudo docker run hello-world
 ```
 
-# Construcción de nuestro entorno de trabajo
+# 🧑🏾‍💻 Construcción de nuestro entorno de trabajo
 
 A este punto ya deberías tener tu archivo `ISIS2.2.tar`, descargado desde la [pagina oficial](https://www.iap.fr/useriap/alard/download.html). 
 
-## 1. Estructura de directorios en tu host
+## 1. 🗃️ Estructura de directorios en tu host
 
 Nos vamos a colocar en nuestro entorno de trabajo, donde crearemos dos directorios: 
 
@@ -55,7 +55,7 @@ cd isis_workdir # aqui se debe encontrar el ISIS2.2.tar
 mkdir isis_host  # Aquí verás los archivos de ISIS desde el host, aqui tambien va un  ISIS2.2.tar?
 ```
 
-## 2. Dockerfile
+## 2. 🐳 Dockerfile
 Creamos nuestro archivo Dockerfile: 
 ```bash
 touch Dockerfile
@@ -63,7 +63,6 @@ touch Dockerfile
 
 Accedemos al Dockerfile y escribimos lo siguiente: 
 ```dockerfile
-
 # Utiliza la imagen oficial de CentOS 6
 FROM centos:6
 
@@ -101,11 +100,9 @@ WORKDIR /isis/package
 
 # ====== Define el comando por defecto para iniciar la shell *
 CMD ["/bin/bash"]
-
-
 ```
 
-## 3. BUILD: Primera ejecución
+## 3. 👷🏾‍♀️ BUILD: Primera ejecución
 
 En el mismo directorio `isis_workdir` donde se deben encontrar el `Dockerfile` e `ISIS2.2.tar` vamos a ejecutar el contenedor con los siguientes comandos: 
 
@@ -121,7 +118,7 @@ Ya tenemos nuestra imagen, a partir de esta es de donde vamos a poder crear cont
 
 La forma mas simple de crear un contenedor a partir de nuestra imagen es la siguiente: 
 
-### Ejecutar (sin volumen)
+### 🏃🏾‍♂️ Ejecutar (sin volumen)
 ```bash
 docker run -it isis_env_image /bin/bash
 ```
@@ -138,9 +135,9 @@ docker container cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|- docker cp [OPTIONS]
 
 Sin embargo, hay una manera de garantizar que los archivos existan y sean accesibles de forma local y en el contenedor, de forma que cada cambio en uno sea visible inmediatamente en el otro. Esto se logra mediante [Volumenes](https://docs.docker.com/engine/storage/volumes/). 
 
-# Volumen
+# 🤝🏽🐳 Volumen
 
-### Ejecutar (en volumen)
+### 🏃🏾‍♂️ Ejecutar (en volumen)
 ```bash
 docker run -it --name isis_local_env -v $(pwd)/isis_host:/isis_container isis_env_image /bin/bash
 ```
@@ -156,7 +153,7 @@ Recapitulando: **`isis_host`** e **`isis_container`** comparten contenido, en lo
 Al iniciar el contenedor te vas a encontrar en un directorio que contiene al paquete ISIS, pero aqui no es donde vamos a trabajar.
 Desde donde iniciamos en el contenedor nos regresamos a `../../isis_container`.
 
-## ISIS en el Volume
+## 🏗️ ISIS en el Volume
 Si ya te encuentras en **`isis_container`** notarás que está vacío, hace falta añadir ahí el `ISIS2.2.tar` y extraerlo, esto lo puedes hacer ya desde el host o desde el container: 
 
 Añadimos el ISIS y extraemos desde host 
@@ -167,7 +164,7 @@ tar -xvf ISIS2.2.tar # Unpack
 xed install.csh short.h & 
 ```
 
-## Permisos
+## ✔️ Permisos
 Puede que te encuentres con un problema de permisos al intentar modificar o acceder a un archivo desde del host local, esto se soluciona con el siguiente comando: 
 
 ```bash
@@ -175,7 +172,7 @@ Puede que te encuentres con un problema de permisos al intentar modificar o acce
 sudo chmod -R a+rwx .
 ```
 
-## Flujo de trabajo
+# ✨💼 Comandos y flujo de trabajo en el día a día
 La mayoria de pasos descritos anteriormente solo se necesitan realizar una vez. 
 Ya que tengas tu imagen y tu contenedor, unicamente sera necesario acceder a el para seguir trabajando. 
 
@@ -190,13 +187,12 @@ docker start <nombre_contenedor>
 
 # acceder a un contenedor en ejecucion	
 docker exec -it <contenedor_id> /bin/bash
-
 ```
 
 ## Que podemos hacer desde el contenedor?
-- no corre en `./install` pero no es necesario ya que los ejecutables se encuentran desde un inicio en la carpeta `bin/`
-- si corre el `./process.csh` 
-- si se pueden abrir los fits desde el host en xgterm
+- 🔴 No corre el `./install` pero no es necesario ya que los ejecutables se encuentran desde un inicio en la carpeta `bin/`.
+- ✅ Sí corre el `./process.csh` y el resto de instrucciones sin ningun problema. 
+- ✅ Sí se pueden abrir los fits desde el host en xgterm.
 
 
 
