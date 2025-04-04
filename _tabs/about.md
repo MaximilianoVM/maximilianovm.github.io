@@ -8,7 +8,7 @@ order: 4
 
 # 👋 Hola!
 
-Me llamo Maximiliano y estoy por terminar la carrera de Física ⚛️🪐. Estos últimos dos semestres he estado trabajando en mi tesis de (Astronomía)[https://astronomia.unam.mx/sede-ensenada/] 🌌 y en un voluntariado con el equipo de Ciencia de Datos en (GECI)[https://www.islas.org.mx/#gsc.tab=0] 🪽🌊.
+Me llamo Maximiliano y estoy por terminar la carrera de Física ⚛️🪐. Estos últimos dos semestres he estado trabajando en mi tesis de [Astronomía](https://astronomia.unam.mx/sede-ensenada/) 🌌 y en un voluntariado con el equipo de Ciencia de Datos en [GECI](https://www.islas.org.mx/#gsc.tab=0) 🪽🌊.
 
 He aprendido muchisimo de ambas experiencias y es impresionante la forma en la que se han ido complementando. Abri este blog con la intencion de compartir un poco de todo esto, tomandomelo en principio como la version final de cada una de mis bitacoras. 
 
