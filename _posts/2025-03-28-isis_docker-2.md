@@ -7,6 +7,7 @@ math: true
 image:
   path: assets/img/whale_eye.jpg
   alt: docker eye
+comments: true
 ---
 
 ### No te corre el `./process.csh` ?
