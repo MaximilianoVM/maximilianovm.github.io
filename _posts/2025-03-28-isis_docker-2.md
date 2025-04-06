@@ -17,7 +17,7 @@ comments: true
 
 Notas: 
 * 🍂 En Linux Mint 21.3 Cinnamon, pero no debería cambiar mucho en otras distribuciones.
-* 🌌 Se asume que ya cuentas con IRAF en tu equipo. Personalmente recomiendo este [tutorial](http://afari.awardspace.us/2018/02/22/instalacion-de-iraf-en-conda/) para su instalación. 
+* 🌌 Se asume que ya cuentas con IRAF en tu equipo en algunas ocasiones, aunque puedes prescindir de él.
 
 # 🐋 Instalación de Docker
 Sigue el tutorial con la propia [documentación de Docker](https://docs.docker.com/engine/install/)
