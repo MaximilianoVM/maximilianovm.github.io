@@ -16,8 +16,8 @@ comments: true
 * _desde IA-UNAM Ensenada._
 
 Notas: 
-* 🍂 En Linux Mint 21.3 Cinnamon
-* 🌌 Se asume que ya cuentas con IRAF en tu equipo
+* 🍂 En Linux Mint 21.3 Cinnamon, pero no debería cambiar mucho en otras distribuciones.
+* 🌌 Se asume que ya cuentas con IRAF en tu equipo. Personalmente recomiendo este [tutorial](http://afari.awardspace.us/2018/02/22/instalacion-de-iraf-en-conda/) para su instalación. 
 
 # 🐋 Instalación de Docker
 Sigue el tutorial con la propia [documentación de Docker](https://docs.docker.com/engine/install/)
@@ -39,15 +39,19 @@ Una vez que hayas concluído el tutorial, puedes comprobar la instalación ejecu
 sudo docker run hello-world
 ```
 
+No deberías obtener errores.
+
 # 🧑🏾‍💻 Construcción de nuestro entorno de trabajo
 
 A este punto ya deberías tener tu archivo `ISIS2.2.tar`, descargado desde la [pagina oficial](https://www.iap.fr/useriap/alard/download.html). 
 
 ## 1. 🗃️ Estructura de directorios en tu host
 
-Nos vamos a colocar en nuestro entorno de trabajo, donde crearemos dos directorios: 
+Nos vamos a colocar en nuestro entorno de trabajo, recomiendo que sea en la carpeta `~/iraf` / `~/.iraf` para que puedas usar ambos paquetes de manera complementaria.
 
-* **`isis_workspace`**: Aquí van a ir nuestros archivos `Dockerfile` e `ISIS2.2.tar`
+Entonces crearemos dos directorios: 
+
+* **`isis_workspace`**: Aquí van a ir nuestros archivos `Dockerfile` (lo construiremos a continuación) e `ISIS2.2.tar`
 * **`isis_host`**: Aquí es donde vamos a interactuar con el paquete **ISIS**
 
 ```bash
@@ -63,7 +67,10 @@ Creamos nuestro archivo `Dockerfile` en `isis_workspace`:
 touch Dockerfile
 ```
 
-Accedemos al Dockerfile y escribimos lo siguiente: 
+Usaremos la imagen oficial de CentOS 6, una distribución lo suficientemente antigua para que no se presenten errores de compatibilidad con ISIS. 
+Se nos presenta la desventaja de que CentOS 6 ya no cuenta con mantenimiento, es por eso que, en procedimientos que lo requieran (como aquellos con Python o con IRAF/DS9) podremos manipular los datos desde el **host**. Ahí radica la principal ventaja de que usemos volumenes. 
+
+Accedemos al `Dockerfile` y escribimos lo siguiente: 
 ```dockerfile
 # Dockerfile para configuración de ISIS en CentOS 6
 # Nota: Este sistema utiliza una versión antigua de CentOS para su compatibilidad con ISIS
@@ -108,7 +115,7 @@ CMD ["/bin/bash"]
 
 A este punto, la estructura de tus directorios debería verse así: 
 
-![isis_workspace_tree](/assets/img/isis_workspace_tree.png){: width="972" height="589" .w-50 .left}
+![isis_workspace_tree](/assets/img/isis_workspace_tree.png){: width="972" height="589" .w-50 }
 
 
 ## 3. 👷🏾‍♀️ BUILD: Primera ejecución
@@ -125,7 +132,7 @@ docker images # despliega una lista de nuestras imagenes
 ```
 Ya tenemos nuestra imagen, a partir de esta es de donde vamos a poder crear contenedores con el comando `run`. 
 
-La forma mas simple de crear un contenedor a partir de nuestra imagen es la siguiente: 
+La forma mas simple de crear un contenedor a partir de nuestra imagen es la siguiente (mas adelante explicaremos por que no es la recomendada para nuestro flujo): 
 
 ### 🏃🏾‍♂️ Ejecutar (sin volumen)
 ```bash
@@ -139,7 +146,6 @@ Una solucion algo tediosa (que es lo que yo solía hacer al principio) implica c
 
 ```docker
 docker container cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|- docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
-
 ```
 
 Sin embargo, hay una manera de garantizar que los archivos existan y sean accesibles de forma local y en el contenedor, de forma que cada cambio en uno sea visible inmediatamente en el otro. Esto se logra mediante [Volumenes](https://docs.docker.com/engine/storage/volumes/). 
@@ -158,14 +164,16 @@ Esta acción:
 
 Recapitulando: **`isis_host`** e **`isis/`** comparten contenido, en local y en el contenedor respectivamente.
 
+A este punto ya es altamente recomendable que trabajes con **dos ventanas de la terminal**. Una en el contenedor y otra en el host local. 
+
 ## 🏗️ ISIS en el Volume
-Si ya te encuentras en **`/isis`** notarás que únicamente contiene el archivo `ISIS2.2.tar`, hace falta extraerlo y realizar la instalación, la extracción la puedes hacer ya sea desde el host o desde el container: 
+Si ya te encuentras en **`/isis`** notarás que únicamente contiene el archivo `ISIS2.2.tar`, hace falta extraerlo y realizar la instalación. La extracción la puedes hacer ya sea desde el host o desde el container: 
 
 Extraemos: 
 ```bash
 tar -xvf ISIS2.2.tar # Unpack
 ```
-Es muy importante que la instalación la hagamos desde el contenedor `/isis`: 
+Es muy importante que la instalación la hagamos **desde el contenedor** `/isis`: 
 ```bash
 cd package 
 yes | csh install.csh
@@ -178,7 +186,7 @@ Puede que te encuentres con un problema de permisos al intentar modificar o acce
 # desde el isis_host:
 sudo chmod -R a+rwx .
 ```
-* Puede que te encuentres con avisos de permisos varias veces, pero siempre se soluciona con el comando anterior.
+* Este tipo de avisos puede aparecer varias veces, pero siempre se soluciona con el comando anterior.
 
 
 # ✨💼 Comandos y flujo de trabajo en el día a día
@@ -212,7 +220,7 @@ docker stop <nombre_contenedor>
 
 ## Que podemos hacer desde el contenedor?
 - ✅ Sí corre el `./install`.
-- ✅ Sí corre el `./process.csh` y el resto de instrucciones sin ningun problema. 
+- ✅ Sí corre el `./process.csh` y el resto de instrucciones `.csh` sin ningun problema. 
 - ✅ Sí se pueden abrir en el el host los **.fits** generados en el contenedor.
 
 
