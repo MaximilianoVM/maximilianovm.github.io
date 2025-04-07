@@ -6,7 +6,7 @@ tags: [Astro, ISIS, Docker]    # TAG names should always be lowercase
 math: true
 image:
   path: assets/img/whale_eye.jpg
-  alt: docker ojo
+  alt: docker ojo 
 comments: true
 ---
 
