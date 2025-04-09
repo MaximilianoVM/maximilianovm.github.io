@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-![Hero image](assets/img/max_spm_linkedin.jpeg){: width="972" height="589" .w-50 }
+![Hero image](assets/img/max_spm_linkedin.jpeg){: width="972" height="589" .w-50 .left}
 
 # 👋 Hola!
 
