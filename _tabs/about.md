@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-![Hero image](/assets/headers/black_cat_painting.jpg)
+![Hero image](assets/img/max_spm_linkedin.jpeg)
 
 # 👋 Hola!
 

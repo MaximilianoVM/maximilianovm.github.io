@@ -16,7 +16,7 @@ timezone: America/Tijuana
 
 title: maxxvm # the main title
 
-tagline: que problema # it will display as the subtitle
+tagline: qué problema # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Un blog para documentar experiencias y aprendizajes, esperando que le puedan ser de utilidad a alguien. O no. 
