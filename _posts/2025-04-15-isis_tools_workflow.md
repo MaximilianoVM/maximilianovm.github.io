@@ -10,9 +10,9 @@ image:
 comments: true
 ---
 
-### `./detect.csh` no genera el `var.fits` ?
-### dates file ? 
-### Curvas de luz automatizadas ?
+* `./detect.csh` no genera el `var.fits` ?
+*  dates file ? 
+*  curvas de luz automatizadas ?
 
 *Esto es un intento de comunicar [mi bitácora](https://veiled-foxtail-58f.notion.site/Bit-cora-Marzo-1-1ab47b4dc47e80a8966cd405cbfb964d)*
 * _desde las periferias de Ensenada._
@@ -32,7 +32,8 @@ source activate iraf27
 pyraf
 ```
 
-```iraf
+```shell 
+# ---- en iraf ---- #
 !ds9 -mode none -geo 760x760+2000+1000 -zscale -log -cmap grey -cmap invert yes -regions show no -mode none &
 
 display dev$pix 1
@@ -85,7 +86,7 @@ Nos vamos a colocar en nuestro directorio `package`.
 
 Entonces clonamos el paquete: 
 
-```git
+```shell
 git clone https://github.com/MaximilianoVM/isis_tools.git
 ```
 
@@ -108,7 +109,7 @@ python3 save_lightcurves.py
 
 # 🌠 Datos propios
 
-En progreso 
+En progreso, por ahora, este es mi flujo de trabajo para cada nuevo conjunto de datos: 
 
 ```bash
 mkdir images3 register3
