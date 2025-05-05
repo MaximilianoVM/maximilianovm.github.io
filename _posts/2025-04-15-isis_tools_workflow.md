@@ -5,7 +5,7 @@ categories: [Astro, ISIS]
 tags: [Astro, ISIS]    # TAG names should always be lowercase
 math: true
 image:
-  path: assets/img/lc10_lightcurve.png
+  path: assets/img/curva_luz_blog.png
   alt: curva de luz con isis_tools
 comments: true
 ---
