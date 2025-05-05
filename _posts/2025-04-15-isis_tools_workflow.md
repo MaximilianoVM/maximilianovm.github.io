@@ -5,8 +5,8 @@ categories: [Astro, ISIS]
 tags: [Astro, ISIS]    # TAG names should always be lowercase
 math: true
 image:
-  path: assets/img/curva_luz_blog.png
-  alt: curva de luz con isis_tools
+  path: assets/img/var_simbad.png
+  alt: imagen de variaciones superpuesta en el catálogo de estrellas conocidas.
 comments: true
 ---
 
