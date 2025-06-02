@@ -51,11 +51,11 @@ Justo por ese entonces estaba en mis primeros meses como voluntario en el Grupo 
 
 ## Docker
 
-![batman_reproducibility_vigilante](/assets/img/batman_use_docker.png){: width="972" height="589" .w-50 }
-
 **¿Para que sirve Docker?**
 Es una herramienta ampliamente utilizada por equipos de desarrollo de software, soluciando problemas de compatibilidad y facilitanto el despliegue de aplicaciones. 
 La cosa es que con ISIS nos encontramos justo con un problema de compatibilidad. El paquete fue hecho a finales de los 90s - principios de los 2000 sin el debido cuidado que el desarrollo de un paquete requiere para su perdurabilidad (ni hablar de su documentación, ese tema requiere otra entrada). 
+
+![batman_reproducibility_protector](/assets/img/batman_use_docker.png){: width="972" height="589" .w-50 }
 
 Como funciona Docker? En terminos prácticos, crea un contenedor a partir de un archivo Dockerfile. Este contenedor representa un espacio con sus propias dependencias (especificadas por nosotros) y un entorno muy controlado. En nuestro caso queremos simular un ambiente en el que ISIS pueda correr sin problema. 
 
