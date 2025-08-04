@@ -41,6 +41,16 @@ sudo docker run hello-world
 
 No deberías obtener errores.
 
+### En caso de error recurrente 
+En uno de los equipos que estuve utilizando se me presentaba el error mencionado anteriormente cada vez que intentaba usar docker. 
+
+En ese caso cree un archivo `docker_permisos.csh` que ejecutaba como: `bash docker_permisos.csh` al principio de cada sesión: 
+
+```bash
+#! /bin/csh -f
+sudo chmod 777 /var/run/docker.sock
+```
+
 # 🧑🏾‍💻 Construcción de nuestro entorno de trabajo
 
 A este punto ya deberías tener tu archivo `ISIS2.2.tar`, descargado desde la [pagina oficial](https://www.iap.fr/useriap/alard/download.html). 
@@ -210,6 +220,38 @@ exit
 
 #detener el contenedor
 docker stop <nombre_contenedor> 
+```
+
+## Alias
+Al usar los mismos comandos de forma recurrente, puede ser mas comodo definir un alias para agilizar las rutinas. 
+
+En mi caso definí uno para inicializar ISIS y otro para inicializar IRAF. 
+
+Esto se hace desde terminal como sigue: 
+```bash
+# Para ISIS
+alias isis_up='chmod 777 /var/run/docker.sock
+docker ps -a 
+docker start isis_local_env
+docker exec -it isis_local_env /bin/bash'
+
+# Para IRAF
+alias iraf_up='xed /home/astro/iraf/max_comandos &
+source activate iraf27
+ds9 -mode none -geo 760x760+2000+1000 -zscale -log -cmap grey -cmap invert yes -regions show no -mode none &
+pyraf'
+```
+
+De modo que mi rutina diaria con ISIS e IRAF se resume así: 
+
+```bash 
+# en una terminal
+bash docker_permisos.csh
+isis_up
+
+# en otra terminal 
+iraf_up
+
 ```
 
 ### Resultado:
