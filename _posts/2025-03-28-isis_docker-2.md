@@ -252,6 +252,11 @@ isis_up
 # en otra terminal 
 iraf_up
 
+
+# al terminar
+exit # en el contenedor
+
+docker stop isis_local_env # ya fuera
 ```
 
 ### Resultado:
