@@ -15,6 +15,8 @@ comments: true
 *Esto es un intento de comunicar [mi bitácora](https://veiled-foxtail-58f.notion.site/ISIS-docker-10747b4dc47e809c835ff61c5a42b4bf)*
 * _desde IA-UNAM Ensenada._
 
+**AVISO** ⚠️🚨⚠️: Puede parecer abrumador pero es un procedimiento de una sola vez, prometo que al final de la entrada tendrás una rutina bastante ágil. 
+
 Notas: 
 * 🍂 En Linux Mint 21.3 Cinnamon, pero no debería cambiar mucho en otras distribuciones.
 * 🌌 Se asume que ya cuentas con IRAF en tu equipo en algunas ocasiones, aunque puedes prescindir de él.
