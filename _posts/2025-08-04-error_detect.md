@@ -1,5 +1,5 @@
 ---
-title: "Error en ./detect.csh al trabajar con muchas imagenes"
+title: "ISIS: Error en ./detect.csh al trabajar con muchas imagenes"
 date: 2025-08-04 17:26:00 -0700
 categories: [Astro, ISIS]
 tags: [Astro, ISIS]    # TAG names should always be lowercase
@@ -18,7 +18,7 @@ comments: true
 
 # ❗ Detect: Weighted stack of subtracted images
 
-Al trabajar con un gran volumen de imagenes, ISIS presenta problemas de memoria. Esto es debido a que el paquete está escrito en C, el cual requiere cierto conocimiento sobre el uso de memoria ya que no la gestiona de manera automatica como si lo hacen otros lenguajes de mas alto nivel. Lamentablemente el codigo fuente de ISIS no está bien optimizado en este aspecto. Evitaremos dentro de lo posible modificarlo directamente. 
+Al trabajar con un gran volumen de imagenes, ISIS presenta problemas de memoria. Esto es debido a que el paquete está escrito en C, el cual requiere cierto conocimiento sobre el uso de memoria ya que no la gestiona de manera automatica como sí lo hacen otros lenguajes de mas alto nivel. Lamentablemente el codigo fuente de ISIS no está bien optimizado en este aspecto. Evitaremos dentro de lo posible modificarlo directamente. 
 
 Codigo fuente `abs/main.c` desde linea 68: 
 ```c
@@ -54,6 +54,8 @@ set list = `awk -v n=500 'NR==FNR{total++; next} FNR==1{step=int(total/n)} (FNR-
 $dir_mrj"/bin/abs" $list -o var.fits -c ../register/phot_config -t $n_reject -s $mesh_smooth -m
 ```
 
+Una funcionalidad que perdemos al implementar esta solución es la capacidad de ISIS para detectar eventos transientes de corta duración. 
+
 * **OTRA IDEA:** Cubrir todo el conjunto por bloques de 500 y luego de algun modo integrar cada bloque para crear el var.fits
 
-
+No desarrollamos una solución definitiva ya que optamos por procesar cada noche y filtro por separado. Esto vendrá con sus propias complicaciónes al momento de juntar las curvas de luz generadas en flujo relativo, con cada noche con una imagen de referencia distinta. 
