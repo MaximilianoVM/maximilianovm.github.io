@@ -146,7 +146,7 @@ Ya tenemos nuestra imagen, a partir de esta es de donde vamos a poder crear cont
 
 La forma mas simple de crear un contenedor a partir de nuestra imagen es la siguiente (mas adelante explicaremos por que no es la recomendada para nuestro flujo): 
 
-### 🏃🏾‍♂️ Ejecutar (sin volumen)
+### 🏃🏾‍♂️ Ejecutar (sin volumen) 🙅🏽‍♀️❌
 ```bash
 docker run -it isis_env_image /bin/bash
 ```
