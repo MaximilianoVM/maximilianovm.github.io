@@ -164,7 +164,7 @@ Sin embargo, hay una manera de garantizar que los archivos existan y sean accesi
 
 # 🧑🏾‍💻🤝🏽🐳 Volumen
 
-### 🏃🏾‍♂️ Ejecutar (en volumen)
+### 🏃🏾‍♂️ Ejecutar (en volumen) 😎✅
 ```bash
 docker run -it --name isis_local_env -v $(pwd)/isis_host:/isis isis_env_image /bin/bash
 ```
