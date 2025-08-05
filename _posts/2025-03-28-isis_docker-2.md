@@ -224,7 +224,7 @@ exit
 docker stop <nombre_contenedor> 
 ```
 
-## Alias
+## Alias 🏷️🥷🏿
 Al usar los mismos comandos de forma recurrente, puede ser mas comodo definir un alias para agilizar las rutinas. 
 
 En mi caso definí uno para inicializar ISIS y otro para inicializar IRAF. 
