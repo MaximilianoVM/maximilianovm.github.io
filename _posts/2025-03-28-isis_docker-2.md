@@ -113,10 +113,7 @@ WORKDIR /isis
 COPY ISIS2.2.tar /isis/
 
 # Extracción del paquete ISIS
-RUN #tar -xvf ISIS2.2.tar && \
-    #cd package && \
-    #csh install.csh && \
-    chown -R root:root /isis
+RUN chown -R root:root /isis
 
 # Variables de entorno críticas (no modificar)
 ENV PATH="/isis/package/bin:/isis/package/register:$PATH"
