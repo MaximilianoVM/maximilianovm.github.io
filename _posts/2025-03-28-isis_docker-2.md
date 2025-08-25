@@ -124,6 +124,10 @@ CMD ["/bin/bash"]
 
 A este punto, la estructura de tus directorios debería verse así: 
 
+```bash
+ tree -d .
+```
+
 ![isis_workspace_tree](/assets/img/isis_workspace_tree.png){: width="972" height="589" .w-50 }
 
 
