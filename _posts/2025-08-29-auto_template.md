@@ -20,13 +20,13 @@ Fue al encontrarme con 10 sets de datos que recordé una herramienta que, entre 
 
 Otro beneficio que viene al hacer las cosas de esta forma es que me libré de la incertidumbre de haber dejado uno de los valores sin cambiar. 
 
-Para que sirva como ejemplo tanto de flujo de trabajo como para la implementación de jinja, adjunto mi plantilla, guardada como 'template.j2': 
+Para que sirva como ejemplo tanto de flujo de trabajo como para la implementación de jinja, adjunto mi plantilla, guardada como `template.j2`: 
 
 Al final de este largo codigo explico como genero el archivo en markdown.
 
 ### 🎨🖌️ Plantilla
 
-```jinja2
+```python
     # Para `{{ register_dir }}`
 
     `{{ images_dir }}`
