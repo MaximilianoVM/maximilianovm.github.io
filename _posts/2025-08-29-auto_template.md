@@ -26,7 +26,7 @@ Al final de este largo codigo explico como genero el archivo en markdown.
 
 ### 🎨🖌️ Plantilla
 
-```python
+```jinja2
 # Para `{{ register_dir }}`
 
 `{{ images_dir }}`
@@ -76,7 +76,6 @@ imexam *.fit
 
 ```bash
 # top 10 FSAS_sortby_fwhm
-
 ```
 
 **verificamos integridad del top**
@@ -114,7 +113,6 @@ N_REJECT        2
 MESH_SMOOTH     1
 ```
 
-.
 
 ```bash
  sub_x       1
@@ -215,7 +213,6 @@ xargs -a LCS_LIST -I {} cp ../../../imagesDIR/{} directorio_destino/
 # desde imagesXXXX 
 !mkdir ../isis_tools/{{ outputs_dir }}/lcs
 !xargs -a LCS_LIST -I {} cp ../{{ images_dir }}/{} ../isis_tools/{{ outputs_dir }}/lcs
-
 ```
 
 ---
