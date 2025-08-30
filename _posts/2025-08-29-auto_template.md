@@ -25,7 +25,7 @@ Para que sirva como ejemplo tanto de flujo de trabajo como para la implementaci�
 Al final de este largo codigo explico como genero el archivo en markdown.
 
 ### 🎨🖌️ Plantilla
-
+{% raw %}
 ```text
     # Para `{{ register_dir }}`
 
@@ -217,6 +217,7 @@ Al final de este largo codigo explico como genero el archivo en markdown.
 
     ---
 ```
+{% endraw %}
 
 ### 🏗️ Script para renderizar la plantilla en Markdown
 
