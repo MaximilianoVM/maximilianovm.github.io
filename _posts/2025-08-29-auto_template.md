@@ -26,7 +26,7 @@ Al final de este largo codigo explico como genero el archivo en markdown.
 
 ### 🎨🖌️ Plantilla
 
-```python
+```text
     # Para `{{ register_dir }}`
 
     `{{ images_dir }}`
