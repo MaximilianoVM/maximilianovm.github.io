@@ -27,195 +27,195 @@ Al final de este largo codigo explico como genero el archivo en markdown.
 ### 🎨🖌️ Plantilla
 
 ```jinja2
-# Para `{{ register_dir }}`
+    # Para `{{ register_dir }}`
 
-`{{ images_dir }}`
+    `{{ images_dir }}`
 
-- [ ] dates
-- [ ] FWHM list
-- [ ] ref_list
-- [ ] config params
-- [ ] input list
-- [ ] exportamos lcs
+    - [ ] dates
+    - [ ] FWHM list
+    - [ ] ref_list
+    - [ ] config params
+    - [ ] input list
+    - [ ] exportamos lcs
 
-### directorios
+    ### directorios
 
-```bash
-# desde package
-mkdir {{ register_dir }}
+    ```bash
+    # desde package
+    mkdir {{ register_dir }}
 
-cp {{ prev_register_dir }}/* {{ register_dir }}/
-```
+    cp {{ prev_register_dir }}/* {{ register_dir }}/
+    ```
 
-### Dates
+    ### Dates
 
-```bash
-cd {{ images_dir }}
+    ```bash
+    cd {{ images_dir }}
 
-# extraer **HJD** de los headers
-hselect 202*o.fit $I,**HJD** yes > ../{{ register_dir }}/dates
-!xed ../{{ register_dir }}/dates
-```
+    # extraer **HJD** de los headers
+    hselect 202*o.fit $I,**HJD** yes > ../{{ register_dir }}/dates
+    !xed ../{{ register_dir }}/dates
+    ```
 
-### FWHM list
+    ### FWHM list
 
-```bash
-hselect 202*o.fit $I,FWHM,SIGMA,E_AMASS,SKY yes > fwhm_sigma_amass_sky
-!xed fwhm_sigma_amass_sky
+    ```bash
+    hselect 202*o.fit $I,FWHM,SIGMA,E_AMASS,SKY yes > fwhm_sigma_amass_sky
+    !xed fwhm_sigma_amass_sky
 
-# ordenar #ta columna (-k<#>) numericamente (-n) 
-!sort -k2 -n fwhm_sigma_amass_sky > FSAS_sortby_fwhm
-!xed FSAS_sortby_fwhm
-```
+    # ordenar #ta columna (-k<#>) numericamente (-n) 
+    !sort -k2 -n fwhm_sigma_amass_sky > FSAS_sortby_fwhm
+    !xed FSAS_sortby_fwhm
+    ```
 
-### ref_list:
+    ### ref_list:
 
-```bash
-imexam *.fit
-```
+    ```bash
+    imexam *.fit
+    ```
 
-```bash
-# top 10 FSAS_sortby_fwhm
-```
+    ```bash
+    # top 10 FSAS_sortby_fwhm
+    ```
 
-**verificamos integridad del top**
+    **verificamos integridad del top**
 
-```python
-!awk 'NR<=15 {print "display", $1, NR}' FSAS_sortby_fwhm
-```
-
-
-### parámetros:
-
-(`{{ register_dir }}`) 
-
-(`{{ images_dir }}`)
-
-```bash
-xed process_config default_config phot_config ref_list &
-```
-
-=====
-
-```bash
-IM_DIR        ../{{ images_dir }}     Directory where the images are
-MRJ_DIR       ..            Installation directory
-REFERENCE     REFERENCE.FIT    Reference image for astrometry
-REF_SUB       ref.fits      Reference image for subtraction
-INFILE        ../{{ register_dir }}/dates         Dates of the frames
-VARIABLES     phot.data     coordinates of objects for which we want to make light curves
-DEGREE          1           The degree of the polynomial astrometric transform between frames 
-CONFIG_DIR      ../{{ register_dir }}          Where to find the configuration files
-SIG_THRESH      10.0
-COSMIC_THRESH   1000.0
-REF_STACK       REFERENCE.FIT
-N_REJECT        2
-MESH_SMOOTH     1
-```
+    ```python
+    !awk 'NR<=15 {print "display", $1, NR}' FSAS_sortby_fwhm
+    ```
 
 
-```bash
- sub_x       1
- sub_y       1
- rad1_bg     15.0
- rad2_bg     20.0
- nstars      5
- mesh        2
- saturation  64000.0
- min         5.0
- psf_width   23
- radphot     6.0
- nstar_max   8
- rad_aper    7.0
- nb_adu_el   1
- rmax        0.5
- first       1
- keep        5
-```
+    ### parámetros:
 
-```bash
-nstamps_x         10       /*** Number of stamps along X axis ***/
-nstamps_y         10       /*** Number of stamps along Y axis***/
-sub_x             1       /*** Number of sub_division of the image along X axis ***/
-sub_y             1       /*** Number of sub_division of the image along Y axis ***/
-half_mesh_size    9      /*** Half kernel size ***/
-half_stamp_size   15      /*** Half stamp size ***/
-deg_bg            3       /** degree to fit differential bakground variations **/
-saturation        64000.0   /** degree to fit background varaitions **/
-pix_min           5.0       /*** Minimum vaue of the pixels to fit *****/
-min_stamp_center  130     /*** Minimum value for object to enter kernel fit *****/
-ngauss            3       /*** Number of Gaussians ****/
-deg_gauss1        6       /*** Degree associated with 1st Gaussian ****/
-deg_gauss2        4       /*** Degree associated with 2nd Gaussian ****/
-deg_gauss3        3       /*** Degree associated with 3rd Gaussian ****/
-sigma_gauss1      0.7     /*** Sigma of 1st Gaussian ****/
-sigma_gauss2      2.0     /*** Sigma of 2nd Gaussian ****/
-sigma_gauss3      4.0     /*** Sigma of 3rd Gaussian ****/
-deg_spatial       2       /*** Degree of the fit of the spatial variations of the Kernel ****/
-```
+    (`{{ register_dir }}`) 
 
-```bash
+    (`{{ images_dir }}`)
 
-LISTA DE REFERENCES
+    ```bash
+    xed process_config default_config phot_config ref_list &
+    ```
 
-```
+    =====
 
-.
+    ```bash
+    IM_DIR        ../{{ images_dir }}     Directory where the images are
+    MRJ_DIR       ..            Installation directory
+    REFERENCE     REFERENCE.FIT    Reference image for astrometry
+    REF_SUB       ref.fits      Reference image for subtraction
+    INFILE        ../{{ register_dir }}/dates         Dates of the frames
+    VARIABLES     phot.data     coordinates of objects for which we want to make light curves
+    DEGREE          1           The degree of the polynomial astrometric transform between frames 
+    CONFIG_DIR      ../{{ register_dir }}          Where to find the configuration files
+    SIG_THRESH      10.0
+    COSMIC_THRESH   1000.0
+    REF_STACK       REFERENCE.FIT
+    N_REJECT        2
+    MESH_SMOOTH     1
+    ```
 
-=====
 
-### Corremos hasta antes del phot
+    ```bash
+     sub_x       1
+     sub_y       1
+     rad1_bg     15.0
+     rad2_bg     20.0
+     nstars      5
+     mesh        2
+     saturation  64000.0
+     min         5.0
+     psf_width   23
+     radphot     6.0
+     nstar_max   8
+     rad_aper    7.0
+     nb_adu_el   1
+     rmax        0.5
+     first       1
+     keep        5
+    ```
 
-```bash
-./process2.csh
-```
+    ```bash
+    nstamps_x         10       /*** Number of stamps along X axis ***/
+    nstamps_y         10       /*** Number of stamps along Y axis***/
+    sub_x             1       /*** Number of sub_division of the image along X axis ***/
+    sub_y             1       /*** Number of sub_division of the image along Y axis ***/
+    half_mesh_size    9      /*** Half kernel size ***/
+    half_stamp_size   15      /*** Half stamp size ***/
+    deg_bg            3       /** degree to fit differential bakground variations **/
+    saturation        64000.0   /** degree to fit background varaitions **/
+    pix_min           5.0       /*** Minimum vaue of the pixels to fit *****/
+    min_stamp_center  130     /*** Minimum value for object to enter kernel fit *****/
+    ngauss            3       /*** Number of Gaussians ****/
+    deg_gauss1        6       /*** Degree associated with 1st Gaussian ****/
+    deg_gauss2        4       /*** Degree associated with 2nd Gaussian ****/
+    deg_gauss3        3       /*** Degree associated with 3rd Gaussian ****/
+    sigma_gauss1      0.7     /*** Sigma of 1st Gaussian ****/
+    sigma_gauss2      2.0     /*** Sigma of 2nd Gaussian ****/
+    sigma_gauss3      4.0     /*** Sigma of 3rd Gaussian ****/
+    deg_spatial       2       /*** Degree of the fit of the spatial variations of the Kernel ****/
+    ```
 
-### Generamos nuestro catalogo de coordenadas
+    ```bash
 
-- Usamos como referencia el REFERENCE`.fits`
+    LISTA DE REFERENCES
 
-```bash
-mkdir ../isis_tools/{{ outputs_dir }}
+    ```
 
-cp interp_REFERENCE.FIT ../isis_tools/{{ outputs_dir }}/
-```
+    .
 
-- Lo metemos al https://nova.astrometry.net/
-- corremos el `phot_input.py` con el REFERENCE`.fits`
-- output = `202..._I`
-- reemplazamos la lista en `phot.data`
+    =====
 
-```bash
-xed phot.data
-```
+    ### Corremos hasta antes del phot
 
-### Corremos el `./phot.csh`
+    ```bash
+    ./process2.csh
+    ```
 
-…
+    ### Generamos nuestro catalogo de coordenadas
 
-### Corremos después del phot
+    - Usamos como referencia el REFERENCE`.fits`
 
-…
+    ```bash
+    mkdir ../isis_tools/{{ outputs_dir }}
 
-### lista de `lc*.data`
+    cp interp_REFERENCE.FIT ../isis_tools/{{ outputs_dir }}/
+    ```
 
-```bash
-# desde {{ images_dir }}
+    - Lo metemos al https://nova.astrometry.net/
+    - corremos el `phot_input.py` con el REFERENCE`.fits`
+    - output = `202..._I`
+    - reemplazamos la lista en `phot.data`
 
-!ls lc*.data* | sort -u > LCS_LIST
-```
+    ```bash
+    xed phot.data
+    ```
 
-### Copiar lista de archivo:
+    ### Corremos el `./phot.csh`
 
-```bash
-xargs -a LCS_LIST -I {} cp ../../../imagesDIR/{} directorio_destino/
+    …
 
-# desde imagesXXXX 
-!mkdir ../isis_tools/{{ outputs_dir }}/lcs
-!xargs -a LCS_LIST -I {} cp ../{{ images_dir }}/{} ../isis_tools/{{ outputs_dir }}/lcs
-```
+    ### Corremos después del phot
 
----
+    …
+
+    ### lista de `lc*.data`
+
+    ```bash
+    # desde {{ images_dir }}
+
+    !ls lc*.data* | sort -u > LCS_LIST
+    ```
+
+    ### Copiar lista de archivo:
+
+    ```bash
+    xargs -a LCS_LIST -I {} cp ../../../imagesDIR/{} directorio_destino/
+
+    # desde imagesXXXX 
+    !mkdir ../isis_tools/{{ outputs_dir }}/lcs
+    !xargs -a LCS_LIST -I {} cp ../{{ images_dir }}/{} ../isis_tools/{{ outputs_dir }}/lcs
+    ```
+
+    ---
 ```
 
 ### 🏗️ Script para renderizar la plantilla en Markdown
