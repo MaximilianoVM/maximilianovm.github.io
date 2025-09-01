@@ -40,14 +40,14 @@ Podemos modificar phot.data (despues de `./detect.csh` y  `./find.csh`).
 ```bash
 47.818095 53.288971 48 53 lc0.data 1.108024 18.838448
 98.324050 53.530079 99 53 lc1.data 0.530456 6.804914
-99.25 54.25 99 54 **lcmod1.data** 1 17
+99.25 54.25 99 54 lcmod1.data 1 17
 149.000000 105.000000 149 105 lc2.data 1.504538 20.553673
 177.773145 153.121297 177 153 lc3.data 0.579896 13.999767
 197.284906 203.871915 197 204 lc4.data 0.291704 9.640295
-175.75 67.75 176 68 **lcmax0**.data 1 17
-68.75 147.25 69 147 **lcmax1**.data 1 17
-174.25 178.75 174 179 **lcmax2**.data 1 17
-101.25 132.75 101 133 **lcmax3**.data 1 17
+175.75 67.75 176 68 lcmax0.data 1 17
+68.75 147.25 69 147 lcmax1.data 1 17
+174.25 178.75 174 179 lcmax2.data 1 17
+101.25 132.75 101 133 lcmax3.data 1 17
 ```
 
 De esta forma, al correr `./phot.csh` se generarán curvas de luz sobre nuestras coordenadas con los nombres `.data` indicados. 
