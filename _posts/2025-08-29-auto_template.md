@@ -12,7 +12,7 @@ comments: true
 
 Se hace un procesamiento independiente para cada set de imagenes, ya sea dividido por filtro, noche o temporada de forma que cada imagen del conjunto pueda ser efectivamente alineada con el resto.
 
-Para cada uno de estos sets tocan una serie de modificaciones muy sutiles a los parametros de ISIS y del procesamiento anterior o posterior. En mi caso, a cada set le doy su propia entrada de bitácora que al igual que los parametros, cambia muy poco aunque no suficiente para hacer menos agobiante y repetitiva la tarea cuando se trabaja con varios sets. 
+Para cada uno de estos sets, corresponde una serie de modificaciones muy sutiles de los parametros de ISIS y del procesamiento anterior o posterior. En mi caso, a cada set le doy su propia entrada de bitácora que al igual que los parametros, cambia muy poco, aunque no suficiente para hacer menos agobiante y repetitiva la tarea cuando se trabaja con varios sets. 
 
 El formato de cada una de estas entradas corresponde simplemente a la serie de instrucciones que copio y pego en IRAF, ISIS o la terminal común, además de los parámetros que también copio y pego en los archivos de ISIS. 
 
