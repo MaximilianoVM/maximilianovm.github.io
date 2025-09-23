@@ -10,6 +10,8 @@ image:
 comments: true
 ---
 
+* _desde IA-UNAM Ensenada._
+
 la lista sobre la cual se hace la fotometria es **`registerX/phot.data`**, que se ve así: 
 
 para **`register2/phot.data` :**
