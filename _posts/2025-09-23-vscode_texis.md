@@ -14,6 +14,9 @@ comments: true
 
 * _desde IA-UNAM Ensenada._ ahora vivo en la obrera.
 
+Notas: 
+* 🍂 En Linux Mint 21.3 Cinnamon. No debería cambiar mucho en otras distribuciones basadas en Ubuntu.
+
 # En VSCode
 
 **instalar:** 
