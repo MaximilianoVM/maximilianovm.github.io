@@ -24,9 +24,43 @@ Otro beneficio que viene al hacer las cosas de esta forma es que me libré de la
 
 Para que sirva como ejemplo tanto de flujo de trabajo como para la implementación de jinja, adjunto mi plantilla, guardada como `template.j2`: 
 
-Al final de este largo codigo explico como genero el archivo en markdown.
 
-### 🎨🖌️ Plantilla
+### 🏗️ Script para renderizar la plantilla en Markdown
+
+```python 
+from jinja2 import Template
+import os
+
+# Leer la plantilla
+with open('template.j2', 'r') as f:
+    template_content = f.read()
+
+template = Template(template_content)
+
+
+# Variables para cada conjunto de datos
+variables = {
+    'prev_register_dir': 'register202506A_I',
+    'register_dir': 'register202506B_I',
+    'images_dir': 'images202506B_I',
+    'outputs_dir': 'NGC6426_2506B_I'
+}
+
+
+# Renderizar la plantilla
+output = template.render(**variables)
+
+
+# Guardar el resultado
+output_filename = f"{variables['outputs_dir']}.md"
+with open(output_filename, 'w') as f:
+    f.write(output)
+
+print(f"Archivo generado: {output_filename}")
+
+```
+
+### 🎨🖌️ Mi plantilla (ejemplo)
 {% raw %}
 ```text
     # Para `{{ register_dir }}`
@@ -220,38 +254,3 @@ Al final de este largo codigo explico como genero el archivo en markdown.
     ---
 ```
 {% endraw %}
-
-### 🏗️ Script para renderizar la plantilla en Markdown
-
-```python 
-from jinja2 import Template
-import os
-
-# Leer la plantilla
-with open('template.j2', 'r') as f:
-    template_content = f.read()
-
-template = Template(template_content)
-
-
-# Variables para cada conjunto de datos
-variables = {
-    'prev_register_dir': 'register202506A_I',
-    'register_dir': 'register202506B_I',
-    'images_dir': 'images202506B_I',
-    'outputs_dir': 'NGC6426_2506B_I'
-}
-
-
-# Renderizar la plantilla
-output = template.render(**variables)
-
-
-# Guardar el resultado
-output_filename = f"{variables['outputs_dir']}.md"
-with open(output_filename, 'w') as f:
-    f.write(output)
-
-print(f"Archivo generado: {output_filename}")
-
-```

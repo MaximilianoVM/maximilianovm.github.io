@@ -16,6 +16,7 @@ comments: true
 
 Notas: 
 * 🍂 En Linux Mint 21.3 Cinnamon. No debería cambiar mucho en otras distribuciones basadas en Ubuntu.
+* Guía para utilizar la plantilla [TEXIS](https://gaia.fdi.ucm.es/research/texis/) en VSCode.
 
 # En VSCode
 
@@ -28,8 +29,6 @@ sudo apt-get install texlive-full
 sudo dpkg -i code y damos tab
 ```
 
-> *Whenever at any step. Just **press Enter** and keep holding it **until it gets unstuck**. It did work out for me. Try this method first before moving to any harsh steps like other answers are mentioning.*
-> 
 
 **En extensiones del VSCode:** 
 
@@ -114,6 +113,9 @@ glosstex Tesis acronimos.gdf
 makeindex Tesis.gxs -o Tesis.glx -s glosstex.ist
 pdflatex Tesis
 ```
+
+> *Whenever at any step. Just **press Enter** and keep holding it **until it gets unstuck**. It did work out for me. Try this method first before moving to any harsh steps like other answers are mentioning.*
+> 
 
 solo?: 
 
