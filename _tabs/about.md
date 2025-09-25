@@ -4,6 +4,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 
+* _Maximiliano Vaca Montejano. Ensenada B.C._ 
+
 ![Hero image](assets/img/max_spm_linkedin.jpeg){: width="972" height="500" .w-50 .left}
 
 # 👋 Hola!
