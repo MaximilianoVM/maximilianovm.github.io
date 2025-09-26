@@ -12,7 +12,7 @@ comments: true
 
 * No tengo para el overleaf 🥀
 
-* _desde IA-UNAM Ensenada._ ahora vivo en la obrera.
+* _desde IA-UNAM Ensenada._ me acabo de mudar otra vez.
 
 Notas: 
 * 🍂 En Linux Mint 21.3 Cinnamon. No debería cambiar mucho en otras distribuciones basadas en Ubuntu.
@@ -54,7 +54,14 @@ creamos carpeta y dentro un archivo `prueba.tex`
 
 ```
 
-# **Consideraciones:**
+Gracias a las extensiones que instalamos, para compilar unicamente debería ser necesario utilizar el botón en la esquina superior derecha de VSCode.
+
+![compile_latex_button](/assets/img/compile_latex.png){: width="972" height="589" .w-50 }
+
+
+Para trabajar con la plantilla Texis y escribir en español se recomienda seguir las siguientes instrucciones:
+
+# **Consideraciones para Texis y escribir en español:**
 
 > *En primer lugar, es necesario destacar que los ficheros `.tex` deben tener
 codificación **ISO-8859-1**. Esto es lo que ocurre de manera predefinida en
@@ -102,7 +109,7 @@ así queda el mío:
 
 ```
 
-## compilar:
+## compilar Texis:
 
 - hay que hacerlo script
 
