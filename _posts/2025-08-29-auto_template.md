@@ -12,7 +12,10 @@ comments: true
 
 * _desde IA-UNAM Ensenada._ 
 
-Se hace un procesamiento independiente para cada set de imagenes, ya sea dividido por filtro, noche o temporada de forma que cada imagen del conjunto pueda ser efectivamente alineada con el resto.
+Se hace un procesamiento independiente para cada set de imagenes, ya sea dividido por filtro, noche o temporada de forma que cada imagen del conjunto pueda ser efectivamente alineada con el resto. De lo contrario, si intentamos alinear imagenes de distintas temporadas sin el cuidado de observar exactamente la misma porción de cielo podemos obtener monstruos como este: 
+
+![bad_astrometry](/assets/img/bad_astrometry.png){: width="972" height="589" .w-50 }
+
 
 Para cada uno de estos sets, corresponde una serie de modificaciones muy sutiles de los parametros de ISIS y del procesamiento anterior o posterior. En mi caso, a cada set le doy su propia entrada de bitácora que al igual que los parametros, cambia muy poco, aunque no suficiente para hacer menos agobiante y repetitiva la tarea cuando se trabaja con varios sets. 
 
