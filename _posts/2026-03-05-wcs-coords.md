@@ -1,12 +1,12 @@
 ---
-title: "Texis + VSCode: Plantilla para tesis en VSCode."
+title: "Coordenadas físicas para .fits desde AR y DEC."
 date: 2026-03-05 03:47:00 -0700
 categories: [Astro]
 tags: [Python]    # TAG names should always be lowercase
 math: true
 image:
-  path: assets/img/overlay_wcs_imagen.png
-  alt: jinja.
+  path: assets/img/get_physical.png
+  alt: get_physical.
 comments: true
 ---
 
