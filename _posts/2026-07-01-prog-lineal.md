@@ -1,6 +1,6 @@
 ---
 title: "Problemas de Programacion Lineal"
-date: 2026-08-01 03:47:00 -0700
+date: 2026-07-01 03:47:00 -0700
 categories: [Metodos de Optimizacion, Programación Lineal]
 tags: [python]    # TAG names should always be lowercase
 math: true
