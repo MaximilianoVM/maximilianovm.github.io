@@ -9,7 +9,7 @@ image:
   alt: prog_lineal.
 comments: true
 ---
-# 1. Planeación de la producción en una empresa textil
+## 1. Planeación de la producción en una empresa textil
 
 Una empresa textil produce cinco tipos de telas. Cada tela puede tejerse en uno o más de los 38 telares con que cuenta la industria. El Departamento de Ventas ya pronosticó la demanda del próximo mes; ese pronóstico aparece en la **Tabla 1**, junto con el precio de venta, el costo
 variable y el precio de compra, todos expresados por metro de tela con un ancho de 140 cm. La empresa opera las 24 horas del dı́a y tiene programado trabajar los 30 dı́as del mes siguiente
@@ -34,7 +34,7 @@ La empresa satisface como mı́nimo toda la demanda requerida, ya sea con sus pr
 
 
 ----
-## Datos y supuestos  
+### Datos y supuestos  
 * 5 tipos de telas: 1, 2, 3, 4, 5
 * Se puede producir en 1 o mas de los 38 telares 
 * Ancho de 140 cm. 
@@ -49,35 +49,35 @@ La empresa satisface como mı́nimo toda la demanda requerida, ya sea con sus pr
 * En Tabla II viene la velocidad de tejido por telar por tipo de tela 
 * Para satisfacer la demanda podemos comprar tela, al precio indicado en la Tabla II 
 
-## Formulacion matematica 
-### Variables de decision
+### Formulacion matematica 
+#### Variables de decision
 * Tengo 5 tipos de telas que producir y 2 tipos de telares donde lo puedo hacer 
 Metros de los distintos tipos de telas producidas por telar (+ las compradas) por mes: 
 $$J_1, J_2, J_3, J_4, J_5$$
 $$R_3, R_4, R_5$$
 $$C_1, C_2, C_3, C_4, C_5$$
 en unidades de $[\frac{m}{mes}]$
-### Restricciones 
-#### Demanda
+#### Restricciones 
+##### Demanda
 $$J_1+C_1 \geq 16500$$
 $$J_2+C_2 \geq 22000$$
 $$J_3+R_3+C_3 \geq 62000$$
 $$J_4+R_4+C_4 \geq 7500$$
 $$J_5+R_5+C_5 \geq 62000$$
-#### Tiempo ($\leq\ 1\ mes$)
+##### Tiempo ($\leq\ 1\ mes$)
 Para los 8 telares Jacquard
 $$\frac{1}{8}\frac{1}{720}[\frac{1}{4.63}(J_1+J_2) + \frac{1}{5.23}(J_3+J_4) + \frac{J_5}{4.17}] \leq 1 \ \text{mes}$$
 Para los 30 telares Ratier
 $$\frac{1}{30}\frac{1}{720}[ \frac{1}{5.23} (R_3+R_4) + \frac{R_5}{4.17} ] \leq 1 \ \text{mes}$$
 
-### Función Objetivo
+#### Función Objetivo
 $[\frac{\$}{m}][m]$
 
 $$min\ z = 2.66J_1 + 2.55J_2 + 2.86 C_1 + 2.7C_2 +$$ 
 $$2.49[J_3+R_3] + 2.6C_3 + 2.51[J_4+R_4] +$$ 
 $$2.7C_4 + 2.5[J_5 + R_5] + 2.7C_5$$
-## Implementación 
-#### código 
+### Implementación 
+##### código 
 ```c
 # =============== Variables de decision =============
 # Metros de tela especifica producidos por telar / compradas por mes
@@ -130,14 +130,14 @@ end;
 ```
 
 
-## Resultados e interpretación
-##### Optimal objective value
+### Resultados e interpretación
+###### Optimal objective value
 
 $$z = 433\,741.8211031$$
 
 El valor óptimo de la función objetivo obtenido por el solver es **$z = 433,741.8211031$**, lo que representa un costo mínimo total de **$433,741.82** para satisfacer la demanda del mes.
 
-### Plan óptimo de producción y compras
+#### Plan óptimo de producción y compras
 
 - **Telares Jacquard (8 telares):**
     - Se producen $16,500\text{ m}$ de tela 1 ($xj_1 = 16500$).
@@ -152,7 +152,7 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 433,74
     - Se compran $11,831.2\text{ m}$ de tela 2 ($xc_2 = 11831.2$).
     - Se compran $34,292.1918465\text{ m}$ de tela 3 ($xc_3 = 34292.1918465$).
 
-# 2. Portafolio de inversiones
+## 2. Portafolio de inversiones
 
 Saúl Cortés, ingeniero en organización industrial, desea formar su propio portafolio de inversiones con el fin de emplear la mı́nima inversión inicial posible y generar con ella cantidades especı́ficas de capital durante los próximos seis años (él considera del año 1 al año 6). 
 El propósito de su análisis de inversión es planear los gastos de su hija Susana cuando ingrese a la universidad, dentro de dos años (año 3). 
@@ -184,13 +184,13 @@ Los productos C y D implican riesgo, por lo cual Saúl no quiere destinarles en 
 
 ---
 
-## Datos y supuestos  
+### Datos y supuestos  
 * mínima inversión inicial posible
 * generar capital específico 
 * 6 años -> Empezar a ganar en el año 3
 * no invertir mas del 20% de la inversión total en el conjunto C y D
 
-## Formulacion matematica 
+### Formulacion matematica 
 ### Variables de decision
 Inversión en $ por acción por año 
 
@@ -201,7 +201,7 @@ $$A_3, B_3, C_3, D_3$$
 $$A_4, B_4, C_4, D_4$$
 $$A_5, B_5, C_5, D_5$$
 $$A_6, B_6, C_6, D_6$$
-### Restricciones 
+#### Restricciones 
 * no invertir mas del 20% de la inversión total en el conjunto C y D
 $$\frac{C_i + D_i}{A_i + B_i + C_i + D_i} \leq 0.2$$
 * Cuanto dinero tengo por año? 
@@ -216,11 +216,11 @@ Año 5:
 $$1.05A_4 + 1.14B_3 + 1.28C_2 + 1.4D_1 = A_5 + 24000$$
 Año 6: 
 $$1.05A_5 + 1.13B_4 + 1.28C_3 + 1.4D_2 \geq 26000$$
-### Función Objetivo
+#### Función Objetivo
 $$min\ z = A_1 + B_1 + C_1 + D_1$$
 
-## Implementación 
-#### código 
+### Implementación 
+##### código 
 ```c
 # =============== Variables de decision =============
 
@@ -297,19 +297,19 @@ subject to c26:   1.05*xa5 + 1.13*xb4 + 1.28*xc3 + 1.4*xd2 = 26000;
 end;
 ```
 
-##### Optimal objective value
+###### Optimal objective value
 
 $$z = aaaa$$
 
-## Resultados e interpretación
+### Resultados e interpretación
 
-##### Optimal objective value
+###### Optimal objective value
 
 $$z = 71\,431.5813381$$
 
 El valor óptimo de la función objetivo obtenido por el solver es **$z = 71,431.5813381$**, lo que indica que Saúl Cortés requiere una inversión inicial mínima de **$71,431.58** en el año 1 para poder cubrir todos sus compromisos financieros proyectados del año 3 al año 6.
 
-### Plan óptimo de inversión
+#### Plan óptimo de inversión
 - **Año 1:**
     - Inversión en $A_1$: $21,470.49$
     - Inversión en $B_1$: $35,674.78$
@@ -328,7 +328,7 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 71,431
 - **Año 4 a 6:**
     - No se realiza ninguna nueva inversión en los productos $A$, $B$, $C$ ni $D$ durante los años 4, 5 y 6 ($xa_4 = xb_4 = xa_5 = 0$).
 
-### Análisis del flujo de capital y riesgo
+#### Análisis del flujo de capital y riesgo
 
 - **Cumplimiento del límite de riesgo:** En el año 1, la suma invertida en los instrumentos riesgosos $C_1 + D_1$ asciende a $\$1,265.79 + \$13,020.52 = \$14,286.31$, lo cual representa exactamente el 20% de la inversión inicial total ($\$71,431.58 \times 0.20 = \$14,286.316$), saturando por completo la restricción impuesta por Saúl.
     
@@ -340,12 +340,12 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 71,431
 
 
 
-# 3. Planeación de la producción en una compañı́a metalúrgica
+## 3. Planeación de la producción en una compañı́a metalúrgica
 
 Un fabricante de una empresa metalúrgica de Frankfurt produce cuatro tipos de productos, que se procesan de manera secuencial en dos máquinas. **La Tabla 5** presenta los detalles técnicos de esta producción.
 
 
-### Tabla 5: Detalles de producción del fabricante metalúrgico
+#### Tabla 5: Detalles de producción del fabricante metalúrgico
 
 |**Máquina**|**Costo por minuto ($)**|**Producto 1**|**Producto 2**|**Producto 3**|**Producto 4**|**Capacidad diaria de producción (min)**|
 |---|---|---|---|---|---|---|
@@ -360,22 +360,22 @@ _Tabla 5: Detalles de producción del fabricante metalúrgico._
 
 ---
 
-## Datos y supuestos  
+### Datos y supuestos  
 * 4 tipos de productos 
 * Procesados de manera secuencial en 2 maquinas 
 * optimizar produccion diaria
-## Variables de decisión
+### Variables de decisión
 unidades del producto i a producir por día 
 $$x_1, x_2, x_3, x_4$$
 cada una pasa por una maquina y luego la otra. 
-## Restricciones 
+### Restricciones 
 de tiempo 
 $$2x_1 + 3x_2 + 4x_3 + 2x_4 \leq 500\ \text{mins}$$
 $[\frac{min}{u}][u]$
 $$3x_1 + 2x_2 + 1x_3 + 2x_4 \leq 380\ \text{mins}$$
 
-## Implementación 
-#### código 
+### Implementación 
+##### código 
 ```c
 # =============== Variables de decision =============
 # unidades del producto i a producir por dia
@@ -395,23 +395,23 @@ subject to c12: 3*x1 + 2*x2 + 1*x3 + 2*x4 <= 380;
 end;
 ```
 
-##### Optimal objective value
+###### Optimal objective value
 
 $$z = 5\,280$$
 
 El valor óptimo de la función objetivo obtenido por el solver es **$z = 5,280$**, lo que representa una ganancia neta máxima de **$5,280** al día.
 
-### Plan óptimo de producción diaria
+#### Plan óptimo de producción diaria
 - **Producto 1 ($x_1$):** Producir $28$ unidades por día ($x_1 = 28$).
 - **Producto 2 ($x_2$):** Producir $148$ unidades por día ($x_2 = 148$).
 - **Producto 3 ($x_3$):** No producir ninguna unidad ($x_3 = 0$).
 - **Producto 4 ($x_4$):** No producir ninguna unidad ($x_4 = 0$).
 
-### Uso de capacidad de las máquinas
+#### Uso de capacidad de las máquinas
 - **Máquina 1:** Se utiliza al 100% de su capacidad disponible ($2 \times 28 + 3 \times 148 = 56 + 444 = 500$ minutos de 500 disponibles).
 - **Máquina 2:** Se utiliza al 100% de su capacidad disponible ($3 \times 28 + 2 \times 148 = 84 + 296 = 380$ minutos de 380 disponibles).
 
-# 4. Planeación de la producción en una empresa de cosméticos
+## 4. Planeación de la producción en una empresa de cosméticos
 
 Una empresa de Milán vende productos quı́micos para cosmética profesional. Dicha empresa
 planea la producción de tres productos, GCA, GCB y GCC, para un periodo determinado,
@@ -438,7 +438,7 @@ de esta empresa de Milán.
 
 _________________
 
-## Datos y supuestos  
+### Datos y supuestos  
 * producción de 3 productos: **GCA, GCB y GCC.**  
 * los productos se obtienen mezclando dos componentes: **C1** y **C2**.  
 * Todo producto final debe contener **al menos uno de los dos componente**s, pero no necesaria-mente ambos.  
@@ -456,28 +456,28 @@ _________________
 | GCA      | 125                |
 | GCB      | 135                |
 | GCC      | 155                |
-## Formulacion matematica 
-### Variables de decision 
+### Formulacion matematica 
+#### Variables de decision 
 Cuantos litros de cada componente (C1, C2) se destina a cada producto, ya que cada producto es una mezcla. 
 * renombramos: $GCA$ -> $A$, $GCB$ -> $B$, $GCC$ -> $C$
 
 $$C1_A, C1_B, C1_C$$, $$C2_A, C2_B, C2_C$$
 en unidades de litros $[L]$
 
-### Restricciones 
-#### Recursos
+#### Restricciones 
+##### Recursos
 * se dispone de **10,000 litros de C1** y **15,000 litros de C2**.  
 
 $$C1_A + C1_B + C1_C \leq 10,000 \ l$$
 
 $$C2_A + C2_B + C2_C \leq 15,000 \ l$$ 
-#### Demanda 
+##### Demanda 
 * **demanda** (al menos) de 6,000, 7,000 y 9,000 litros para GCA, GCB y GCC respectivamente.  
 $$C1_A + C2_A \geq 6,000 \ l$$
 $$C1_B + C2_B \geq 7,000 \ l$$
 $$C1_C + C2_C \geq 9,000 \ l$$
 
-#### Proporciones
+##### Proporciones
 * C1 y C2, tienen una proporción de elemento crítico de 0.4 y 0.2, respectivamente (por litro)
 		elemento critico en C1 = $0.4*C1$    $[L]$
 		elemento critico en C2 = $0.2*C2$    $[L]$
@@ -488,7 +488,7 @@ $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_A + 0.2*C2_A}{C1_A + C2_A} \geq 0
 $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_B + 0.2*C2_B}{C1_B + C2_B} \leq 0.3$$
 * la proporción mınima de C1 respecto de C2 en el producto GCC debe ser 0.3
 $$\frac{elemento\ critico\ en\ C1\ para\ C}{elemento\ critico\ en\ C2\ para\ C} = \frac{C1_C}{C2_C} \geq0.3$$
-### Función Objetivo (En base a ganancias)
+#### Función Objetivo (En base a ganancias)
 | producto | ganancia por litro |
 | -------- | ------------------ |
 | GCA      | 125                |
@@ -502,8 +502,8 @@ en terminos de nuestras variables de decisión:
 $$max\ z = 125*(C1_A+C2_A) + 135*(C1_B+C2_B) + 155*(C1_C+C2_C)$$
 
 
-## Implementación
-### Código
+### Implementación
+#### Código
 ```
 var C1_A >= 0;
 var C1_B >= 0;
@@ -534,10 +534,10 @@ subject to c33:                  C1_C >= 0.3*C2_C;
 end;
 
 ```
-### Resultados 
-#### Valor óptimo para la función objetivo: 
+#### Resultados 
+##### Valor óptimo para la función objetivo: 
 $$z= 3,555,000$$
-#### Valores óptimos para las variables de decisión: 
+##### Valores óptimos para las variables de decisión: 
 
 | Variable $[Litros\ de\ componente\ dedicado\ a\ producto]$ | Valor $[Litros]$ | Elemento Critico |
 | ---------------------------------------------------------- | ---------------- | ---------------- |
@@ -548,7 +548,7 @@ $$z= 3,555,000$$
 | C2_B                                                       | 3500             |                  |
 | C2_C                                                       | 9230.7692308     |                  |
 
-# 5. Planeación de la producción en una industria automotriz
+## 5. Planeación de la producción en una industria automotriz
 
 
 Una planta automotriz ensambla dos tipos de vehı́culos: un **sedán** de cuatro puertas y una
