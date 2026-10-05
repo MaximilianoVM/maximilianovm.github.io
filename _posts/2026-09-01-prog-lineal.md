@@ -14,7 +14,16 @@ comments: true
 Una empresa textil produce cinco tipos de telas. Cada tela puede tejerse en uno o más de los 38 telares con que cuenta la industria. El Departamento de Ventas ya pronosticó la demanda del próximo mes; ese pronóstico aparece en la **Tabla 1**, junto con el precio de venta, el costo
 variable y el precio de compra, todos expresados por metro de tela con un ancho de 140 cm. La empresa opera las 24 horas del dı́a y tiene programado trabajar los 30 dı́as del mes siguiente
 
-TABLA 
+
+|**Tela**|**Demanda (m)**|**Precio de venta ($/m)**|**Costo variable ($/m)**|**Precio de compra ($/m)**|
+|---|---|---|---|---|
+|1|16,500|3.99|2.66|2.86|
+|2|22,000|3.86|2.55|2.70|
+|3|62,000|4.10|2.49|2.60|
+|4|7,500|4.24|2.51|2.70|
+|5|62,000|3.70|2.50|2.70|
+
+_Tabla 1: Demanda mensual, precio de venta, costo variable y precio de compra de las telas._
 
 La industria cuenta con dos tipos de telares: jacquard y ratier. Los telares jacquard son más versátiles y pueden producir los cinco tipos de tela; los telares ratier solo producen tres de los cinco tipos. En total existen 38 telares: 8 jacquard y 30 ratier. La **Tabla 2** indica la velocidad de tejido de cada tela en ambos tipos de telar. El tiempo requerido para cambiar de
 tela no es significativo, por lo que no se toma en cuenta.
@@ -145,14 +154,29 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 433,74
 
 # 2. Portafolio de inversiones
 
-Saúl Cortés, ingeniero en organización industrial, desea formar su propio portafolio de inversiones con el fin de emplear la mı́nima inversión inicial posible y generar con ella cantidades especı́ficas de capital durante los próximos seis años (él considera del año 1 al año 6). El propósito de su análisis de inversión es planear los gastos de su hija Susana cuando ingrese a la universidad, dentro de dos años (año 3). Los requerimientos financieros de Saúl se presentan en la **Tabla 3**.
+Saúl Cortés, ingeniero en organización industrial, desea formar su propio portafolio de inversiones con el fin de emplear la mı́nima inversión inicial posible y generar con ella cantidades especı́ficas de capital durante los próximos seis años (él considera del año 1 al año 6). 
+El propósito de su análisis de inversión es planear los gastos de su hija Susana cuando ingrese a la universidad, dentro de dos años (año 3). 
+Los requerimientos financieros de Saúl se presentan en la **Tabla 3**.
 
-TABLA 3 
+|**Año**|**Capital requerido ($)**|
+|---|---|
+|3|20,000|
+|4|22,000|
+|5|24,000|
+|6|26,000|
+
+_Tabla 3: Requerimientos financieros de Saúl Cortés._
 
 Las caracterı́sticas de las inversiones entre las que Saúl puede elegir se muestran en la **Tabla 4**.
 
-TABLA 4 
+|**Opción**|**Rentabilidad (%)**|**Vencimiento (años)**|
+|---|---|---|
+|A|5|1|
+|B|13|2|
+|C|28|3|
+|D|40|4|
 
+_Tabla 4: Características de las inversiones._
 
 Los productos C y D implican riesgo, por lo cual Saúl no quiere destinarles en conjunto más del 20 % de la inversión total.
 
@@ -320,9 +344,18 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 71,431
 
 Un fabricante de una empresa metalúrgica de Frankfurt produce cuatro tipos de productos, que se procesan de manera secuencial en dos máquinas. **La Tabla 5** presenta los detalles técnicos de esta producción.
 
-TABLA 5
 
-a) Construya un modelo de programación lineal que optimice la producción diaria del fabricante.
+### Tabla 5: Detalles de producción del fabricante metalúrgico
+
+|**Máquina**|**Costo por minuto ($)**|**Producto 1**|**Producto 2**|**Producto 3**|**Producto 4**|**Capacidad diaria de producción (min)**|
+|---|---|---|---|---|---|---|
+|**1**|10|2|3|4|2|500|
+|**2**|5|3|2|1|2|380|
+|**Precio de venta ($)**|—|65|70|55|45|—|
+
+_Tabla 5: Detalles de producción del fabricante metalúrgico._
+
+**a)** Construya un modelo de programación lineal que optimice la producción diaria del fabricante.
 
 
 ---
