@@ -205,17 +205,25 @@ $$A_6, B_6, C_6, D_6$$
 * no invertir mas del 20% de la inversión total en el conjunto C y D
 $$\frac{C_i + D_i}{A_i + B_i + C_i + D_i} \leq 0.2$$
 * Cuanto dinero tengo por año? 
+* **Las igualdades representan un balance de caja: lo que entra en un año debe ser exactamente igual a lo que sale ese mismo año.**
+* todo lo que entra este año se reinvierte por completo
 Año 1: 
 $$A_1 + B_1 + C_1 + D_1\ \text{<- no es restriccion, sera la func. objetivo}$$
+
 Año 2: 
-$$1.05 A_1 = A_2 + B_2 + C_2 + D_2$$Año 3: 
+$$1.05 A_1 = A_2 + B_2 + C_2 + D_2$$
+Año 3: 
 $$1.05A_2 + 1.13B_1 = A_3 + B_3 + C_3 + 20000$$
+
 Año 4: 
 $$1.28C_1 + 1.05A_3 + 1.13B_2 = A_4 + B_4 + 22000$$
+
 Año 5: 
 $$1.05A_4 + 1.14B_3 + 1.28C_2 + 1.4D_1 = A_5 + 24000$$
+
 Año 6: 
 $$1.05A_5 + 1.13B_4 + 1.28C_3 + 1.4D_2 \geq 26000$$
+
 #### Función Objetivo
 $$min\ z = A_1 + B_1 + C_1 + D_1$$
 
