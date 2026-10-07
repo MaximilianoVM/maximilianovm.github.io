@@ -66,24 +66,31 @@ en unidades de $[\frac{m}{mes}]$
 #### Restricciones 
 ##### Demanda
 $$J_1+C_1 \geq 16500$$
+
 $$J_2+C_2 \geq 22000$$
+
 $$J_3+R_3+C_3 \geq 62000$$
+
 $$J_4+R_4+C_4 \geq 7500$$
+
 $$J_5+R_5+C_5 \geq 62000$$
 ##### Tiempo ($\leq\ 1\ mes$)
 Para los 8 telares Jacquard
+
 $$\frac{1}{8}\frac{1}{720}[\frac{1}{4.63}(J_1+J_2) + \frac{1}{5.23}(J_3+J_4) + \frac{J_5}{4.17}] \leq 1 \ \text{mes}$$
+
 Para los 30 telares Ratier
+
 $$\frac{1}{30}\frac{1}{720}[ \frac{1}{5.23} (R_3+R_4) + \frac{R_5}{4.17} ] \leq 1 \ \text{mes}$$
 
 #### Función Objetivo
 $[\frac{\$}{m}][m]$
 
-$$min\ z = 2.66J_1 + 2.55J_2 + 2.86 C_1 + 2.7C_2 + \\
-2.49[J_3+R_3] + 2.6C_3 + 2.51[J_4+R_4] + \\
-2.7C_4 + 2.5[J_5 + R_5] + 2.7C_5$$
+$$min\ z = 2.66J_1 + 2.55J_2 + 2.86 C_1 + 2.7C_2 + \\ 2.49[J_3+R_3] + 2.6C_3 + 2.51[J_4+R_4] + \\ 2.7C_4 + 2.5[J_5 + R_5] + 2.7C_5$$
+
 ### Implementación 
 ##### código 
+
 ```c
 # =============== Variables de decision =============
 # Metros de tela especifica producidos por telar / compradas por mes
@@ -202,32 +209,46 @@ Inversión en $ por acción por año
 
 **año 1**
 $$A_1, B_1, C_1, D_1$$
+
 $$A_2, B_2, C_2, D_2$$
+
 $$A_3, B_3, C_3, D_3$$
+
 $$A_4, B_4, C_4, D_4$$
+
 $$A_5, B_5, C_5, D_5$$
+
 $$A_6, B_6, C_6, D_6$$
+
 #### Restricciones 
 * no invertir mas del 20% de la inversión total en el conjunto C y D
 $$\frac{C_i + D_i}{A_i + B_i + C_i + D_i} \leq 0.2$$
 * Cuanto dinero tengo por año? 
 * **Las igualdades representan un balance de caja: lo que entra en un año debe ser exactamente igual a lo que sale ese mismo año.**
 * todo lo que entra este año se reinvierte por completo
+
 Año 1: 
+
 $$A_1 + B_1 + C_1 + D_1\ \text{<- no es restriccion, sera la func. objetivo}$$
 
 Año 2: 
+
 $$1.05 A_1 = A_2 + B_2 + C_2 + D_2$$
+
 Año 3: 
+
 $$1.05A_2 + 1.13B_1 = A_3 + B_3 + C_3 + 20000$$
 
 Año 4: 
+
 $$1.28C_1 + 1.05A_3 + 1.13B_2 = A_4 + B_4 + 22000$$
 
 Año 5: 
+
 $$1.05A_4 + 1.14B_3 + 1.28C_2 + 1.4D_1 = A_5 + 24000$$
 
 Año 6: 
+
 $$1.05A_5 + 1.13B_4 + 1.28C_3 + 1.4D_2 \geq 26000$$
 
 #### Función Objetivo
@@ -476,20 +497,22 @@ Cuantos litros de cada componente (C1, C2) se destina a cada producto, ya que ca
 * renombramos: $GCA$ -> $A$, $GCB$ -> $B$, $GCC$ -> $C$
 
 $$C1_A, C1_B, C1_C$$, $$C2_A, C2_B, C2_C$$
+
 en unidades de litros $[L]$
 
 #### Restricciones 
 ##### Recursos
 * se dispone de **10,000 litros de C1** y **15,000 litros de C2**.  
 
-$$C1_A + C1_B + C1_C \leq 10,000 \ l \\
-
-C2_A + C2_B + C2_C \leq 15,000 \ l$$ 
+$$C1_A + C1_B + C1_C \leq 10,000 \ l \\ C2_A + C2_B + C2_C \leq 15,000 \ l$$ 
 
 ##### Demanda 
 * **demanda** (al menos) de 6,000, 7,000 y 9,000 litros para GCA, GCB y GCC respectivamente.  
+
 $$C1_A + C2_A \geq 6,000 \ l$$
+
 $$C1_B + C2_B \geq 7,000 \ l$$
+
 $$C1_C + C2_C \geq 9,000 \ l$$
 
 ##### Proporciones
@@ -498,10 +521,15 @@ $$C1_C + C2_C \geq 9,000 \ l$$
 		elemento critico en C2 = $0.2*C2$    $[L]$
 
 * GCA debe contener una proporción de al menos 0.3 del elemento crıtico.  
+
 $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_A + 0.2*C2_A}{C1_A + C2_A} \geq 0.3$$
+
 * la proporción del elemento crıtico presente en GCB sea a lo más de 0.3.  
+
 $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_B + 0.2*C2_B}{C1_B + C2_B} \leq 0.3$$
+
 * la proporción mınima de C1 respecto de C2 en el producto GCC debe ser 0.3
+
 $$\frac{elemento\ critico\ en\ C1\ para\ C}{elemento\ critico\ en\ C2\ para\ C} = \frac{C1_C}{C2_C} \geq0.3$$
 
 #### Función Objetivo (En base a ganancias)
@@ -602,12 +630,19 @@ a) Utilice programación lineal e indique eCanl plan de producción diaria que m
 * ~~Cantidad de determinado vehiculo producido en determinada planta~~ -> cada vehiculo necesita ambos
 * No hay variables temporales, solo deben caber en un día
 * Cantidad de cada vehiculo producido por día
+
 $$S, V$$
+
 ### Restricciones
+
 **uso de planta de pintura**
+
 $$\frac{1}{2000} S +\frac{1}{1500}V \leq 1 \ \text{día efectivo}$$
+
 **uso de planta ensambladora**
+
 $$\frac{1}{2200} (S + V) \leq 1 \ \text{día efectivo} $$
+
 ### Función objetivo 
 $$max\ z = 3000V + 2100S$$
 
@@ -670,17 +705,28 @@ $$T, S, F, G$$
 
 #### Restricciones
 Capital inicial
+
 $$T+S+F+G= \text{\$}200000$$
+
 * Regla 1: la tasa anual de rendimiento de la cartera debe ser de al menos 9 %.
+
 $$\frac{0.12T + 0.08S + 0.06F + 0.10G}{200000} \geq 0.09 $$
+
 * Regla 2: ningún valor puede representar más del 50 % de la inversión total en dólares.
+
 $$T\leq\text{\$}200000/2$$
+
 $$S\leq\text{\$}200000/2$$
+
 $$F\leq\text{\$}200000/2$$
+
 $$G\leq \text{\$}200000/2$$
+
 #### Función objetivo 
 Minimizar el reisgo
+
 $$min\ z = 0.10T + 0.07S + 0.05F + 0.08G$$
+
 ### Implementación
 #### Código
 ```
