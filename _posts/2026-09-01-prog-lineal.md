@@ -73,9 +73,9 @@ $$\frac{1}{30}\frac{1}{720}[ \frac{1}{5.23} (R_3+R_4) + \frac{R_5}{4.17} ] \leq 
 #### Función Objetivo
 $[\frac{\$}{m}][m]$
 
-$$min\ z = 2.66J_1 + 2.55J_2 + 2.86 C_1 + 2.7C_2 +$$ 
-$$2.49[J_3+R_3] + 2.6C_3 + 2.51[J_4+R_4] +$$ 
-$$2.7C_4 + 2.5[J_5 + R_5] + 2.7C_5$$
+$$min\ z = 2.66J_1 + 2.55J_2 + 2.86 C_1 + 2.7C_2 + \\
+2.49[J_3+R_3] + 2.6C_3 + 2.51[J_4+R_4] + \\
+2.7C_4 + 2.5[J_5 + R_5] + 2.7C_5$$
 ### Implementación 
 ##### código 
 ```c
@@ -140,17 +140,17 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 433,74
 #### Plan óptimo de producción y compras
 
 - **Telares Jacquard (8 telares):**
-    - Se producen $16,500\text{ m}$ de tela 1 ($xj_1 = 16500$).
-    - Se producen $10,168.8\text{ m}$ de tela 2 ($xj_2 = 10168.8$).
+    - Se producen $16,500\text{ m}$ de tela 1.
+    - Se producen $10,168.8\text{ m}$ de tela 2.
     - No se produce tela 3, 4 ni 5 ($xj_3 = xj_4 = xj_5 = 0$).
 - **Telares Ratier (30 telares):**
-    - Se producen $27,707.8081535\text{ m}$ de tela 3 ($xr_3 = 27707.8081535$).
-    - Se producen $7,500\text{ m}$ de tela 4 ($xr_4 = 7500$).
-    - Se producen $62,000\text{ m}$ de tela 5 ($xr_5 = 62000$).
+    - Se producen $27,707.8081535\text{ m}$ de tela 3.
+    - Se producen $7,500\text{ m}$ de tela 4.
+    - Se producen $62,000\text{ m}$ de tela 5.
 - **Compras a fábrica externa:**
     - No se compra tela 1, 4 ni 5 ($xc_1 = xc_4 = xc_5 = 0$).
-    - Se compran $11,831.2\text{ m}$ de tela 2 ($xc_2 = 11831.2$).
-    - Se compran $34,292.1918465\text{ m}$ de tela 3 ($xc_3 = 34292.1918465$).
+    - Se compran $11,831.2\text{ m}$ de tela 2.
+    - Se compran $34,292.1918465\text{ m}$ de tela 3.
 
 ## 2. Portafolio de inversiones
 
@@ -476,9 +476,10 @@ en unidades de litros $[L]$
 ##### Recursos
 * se dispone de **10,000 litros de C1** y **15,000 litros de C2**.  
 
-$$C1_A + C1_B + C1_C \leq 10,000 \ l$$
+$$C1_A + C1_B + C1_C \leq 10,000 \ l \\
 
-$$C2_A + C2_B + C2_C \leq 15,000 \ l$$ 
+C2_A + C2_B + C2_C \leq 15,000 \ l$$ 
+
 ##### Demanda 
 * **demanda** (al menos) de 6,000, 7,000 y 9,000 litros para GCA, GCB y GCC respectivamente.  
 $$C1_A + C2_A \geq 6,000 \ l$$
@@ -496,14 +497,19 @@ $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_A + 0.2*C2_A}{C1_A + C2_A} \geq 0
 $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_B + 0.2*C2_B}{C1_B + C2_B} \leq 0.3$$
 * la proporción mınima de C1 respecto de C2 en el producto GCC debe ser 0.3
 $$\frac{elemento\ critico\ en\ C1\ para\ C}{elemento\ critico\ en\ C2\ para\ C} = \frac{C1_C}{C2_C} \geq0.3$$
+
 #### Función Objetivo (En base a ganancias)
 | producto | ganancia por litro |
 | -------- | ------------------ |
 | GCA      | 125                |
 | GCB      | 135                |
 | GCC      | 155                |
-$$GCi\ producido\ [L]= \sum_k Ck_i = C1_A + C2_A$$ Funcion objetivo en unidades de dinero $: 
-$$[L] * [ \frac{$}{L} ]$$
+
+$$ GCi\ producido\ [L]= \sum_k Ck_i = C1_A + C2_A $$ 
+
+Funcion objetivo en unidades de dinero $: 
+
+$$[L] * [ \frac{\$}{L} ]$$
 
 $$max\ z = 125*GCA + 135*GCB + 155*GCC$$
 en terminos de nuestras variables de decisión: 
@@ -616,9 +622,9 @@ end;
 
 Optimal objective value
 
-$$z = $4,500,000 $$
+$$z = \$4,500,000 $$
 
-# 6. Cartera de inversiones
+## 6. Cartera de inversiones
 
 
 ORGASA tiene una cartera de inversiones en acciones, bonos y otros instrumentos alternativos.
@@ -643,19 +649,19 @@ máximo, ¿cómo se modificarı́a el modelo anterior?
 
 _____________________________________________________________
 
-## Datos y supuestos  
+### Datos y supuestos  
 * Dispone de $200000 
 * 4 alternativas en Tabla 6.
 * Regla 1: la tasa anual de rendimiento de la cartera debe ser de al menos 9 %.
 * Regla 2: ningún valor puede representar más del 50 % de la inversión total en dólares.
-## Formulacion matematica 
-## a) 
-### Variables de decision 
+### Formulacion matematica 
+### a) 
+#### Variables de decision 
 **Dinero invertido por acción** $[\ \$\ ]$
 
 $$T, S, F, G$$
 
-### Restricciones
+#### Restricciones
 Capital inicial
 $$T+S+F+G= $200000$$
 * Regla 1: la tasa anual de rendimiento de la cartera debe ser de al menos 9 %.
@@ -665,11 +671,11 @@ $$T\leq$200000/2$$
 $$S\leq$200000/2$$
 $$F\leq$200000/2$$
 $$G\leq $200000/2$$
-### Función objetivo 
+#### Función objetivo 
 Minimizar el reisgo
 $$min\ z = 0.10T + 0.07S + 0.05F + 0.08G$$
-## Implementación
-### Código
+### Implementación
+#### Código
 ```
 var T >= 0, <= 100000;
 var S >= 0, <= 100000;
@@ -695,8 +701,8 @@ Cambia la funcion objetivo por una que maximice el rendimiento
 $$max\ z = 0.12T + 0.08S + 0.06F + 0.10G$$
 y no haría falta la regla 1 ya que sería redundante, maximizar el rendimiento automáticamente garantiza que sea al menos 9%.
 
-## Implementación
-### Código
+### Implementación
+#### Código
 ```
 var T >= 0, <= 100000;
 var S >= 0, <= 100000;
@@ -717,7 +723,7 @@ $$ z= 22000 $$
 
 ![[Pasted image 20260909111123.png]]
 
-# 7. Fondos de inversión
+## 7. Fondos de inversión
 
 Un pequeño inversionista dispone de $12,000 para invertir y puede elegir entre tres fondos
 distintos. Los fondos de inversión garantizados ofrecen una tasa de rendimiento esperada del
@@ -734,7 +740,7 @@ de decisión.
 **b)** Resuelva el problema con el método gráfico e indique la solución óptima.
 
 ---
-## Datos y supuestos  
+### Datos y supuestos  
 *  $12,000 para invertir
 * tres fondos distintos.
 * Los fondos de inversión **garantizados** ofrecen una tasa de rendimiento esperada del 7 %; 
@@ -749,26 +755,26 @@ de decisión.
 | **tasa de rentimiento**        | 0.07         | 0.08      | 0.12  |
 | **$ de inversión garantizado** | si           | una parte | no    |
 
-## Formulacion matematica 
-### Variables de decision 
+### Formulacion matematica 
+#### Variables de decision 
 Capital $ a invertir en cada fondo
 
 * Fondos de Inversión Garantizados: $G$
 * Fondos Mixtos: $M$
 * Bolsa de Valores *(invisible)*: $\$12000 - G -M$
 $$G, M$$
-### Restricciones
+#### Restricciones
 *  $12,000 para invertir
   $$G + M \leq $12,000$$
  * no invertir más de $2,000 en la Bolsa de Valores.
   $$\$12000 - G -M \leq $ 2,000$$
 * invertir al menos tres veces más en fondos de inversión garantizados que en fondos mixtos.
 $$\frac{G}{M} \geq 3$$
-### Función objetivo 
+#### Función objetivo 
 ¿cuáles son los montos óptimos de inversión?
 $$max \ z = 0.07G + 0.08M + 0.12(12000 - G -M)$$
-## Implementación
-### Código
+### Implementación
+#### Código
 ```
 var G >= 0;
 var M >= 0;
@@ -789,7 +795,7 @@ $$ z= 965 $$
 ![[Pasted image 20260909111647.png]]
 
 
-# 8. Renta de almacenes
+## 8. Renta de almacenes
 
 
 Una empresa se ha dado cuenta de que no tendrá suficiente espacio de almacenamiento
@@ -810,18 +816,18 @@ a) Construya un modelo de programación lineal cuya solución proporcione una po
 renta que cubra los requerimientos de espacio a un costo mı́nimo.
 
 ----
-## Datos y supuestos  
+### Datos y supuestos  
 *  Al inicio de cada mes puede rentar cualquier cantidad de espacio por cualquier número de meses
 * puede contratar de manera independiente distintas cantidades de espacio con distintas duraciones.
 * puede contratar nuevas rentas antes de que venzan las anteriores
-## Formulacion matematica 
-### Variables de decision
+### Formulacion matematica 
+#### Variables de decision
 Miles de $m^2$ rentados en un mes dado (Enero, Febrero, Marzo) durante cierta cantidad de meses (1, 2, 3). 
 En $[1k \ \ m^2]$:
 $$E1, E2, E3$$
 $$F1, F2$$
 $$M1$$
-### Restricciones
+#### Restricciones
 De espacio 
 * Enero: lo cubren los contratos que empiezan en enero, de cualquier duración
 $$E1+ E2+ E3 \geq 25 \ m^2$$
@@ -830,12 +836,12 @@ $$E2 + E3 + F1 + F2 \geq 10 \ m^2$$
 * Marzo: lo cubren E3 (hechos en enero que llegan hasta marzo), F2 de febrero que llega hasta marzo y los iniciados el mismo marzo (solo M1). 
 $$E3 + F2 + M1 \geq 20 \ m^2$$
 
-### Funcion objetivo 
+#### Funcion objetivo 
 Minimizando costos 
 $[1k \ \ m^2] [\frac{\$}{1k \ m^2}]$
 $$min \ z = 280(E1 + F1 + M1) + 450(E2 + F2) + 600E3$$
-## Implementación
-### Código
+### Implementación
+#### Código
 ```c
 var E1 >= 0;
 var E2 >= 0;
@@ -858,7 +864,7 @@ $$z = 13000$$
 
 ![[Pasted image 20260914011619.png]]
 
-# 9. Planeación de la producción para un fabricante de alambre
+## 9. Planeación de la producción para un fabricante de alambre
 
 
 Una empresa de Valencia fabrica alambre de aluminio y alambre de cobre. Cada kilogramo
@@ -874,7 +880,7 @@ b) ¿Qué cantidad de cada alambre deberı́a producirse para maximizar la ganan
 esa ganancia?
 
 ----
-## Datos y supuestos  
+### Datos y supuestos  
 * Fabrican: alambres de aluminio y de cobre 
 * 1kg de aluminio requiere 5 kWh de electricidad y 0.25 horas de trabajo
 * 1kg de cobre requiere 2 kWh de electricidad y 0.5 horas de trabajo
@@ -885,11 +891,11 @@ esa ganancia?
 	* aluminio -> $0.25 por kilogramo
 	* cobre -> $0.40 por kilogramo
 * maximizar la ganancia
-## Formulacion matematica 
-### Variables de decision
+### Formulacion matematica 
+#### Variables de decision
 kg de cada alambre a producir por dia 
 $$A, C$$
-### Restricciones
+#### Restricciones
 Electricidad 
 $[\frac{kWh}{kg}][kg]$
 $$5A + 2C \leq 500 \ kWh$$
@@ -901,13 +907,13 @@ Materia prima de cobre
 $[kg]$
 $$C \leq 60 \ kg$$
 
-### Funcion objetivo 
+#### Funcion objetivo 
 Minimizando costos 
 $[\frac{\$}{kg}][kg]$
 $$max \ z = 0.25A + 0.40 C$$
 
-## Implementación
-### Código
+### Implementación
+#### Código
 ```c
 var x1 >= 0;
 var x2 >= 0;
@@ -928,7 +934,7 @@ $$z = 36.25$$
 
 ![[Pasted image 20260914015712.png]]
 
-# 10. Inversiones mixtas
+## 10. Inversiones mixtas
 
 
 La empresa Inversiones Internacionales, S.A.U. cuenta con hasta cinco millones de dólares
@@ -945,7 +951,7 @@ la compañı́a en las seis opciones posibles para maximizar la rentabilidad de 
 
 ------
 
-## Datos y supuestos
+### Datos y supuestos
 * **Hasta** 5 MDD para invertir 
 * En 6 opciones posibles 
 * No destinar mas del 25% del total a una sola de las opciones 
@@ -957,14 +963,14 @@ Cuanto debería invertir en las 6 opciones
 para 
 maximizar la rentabilidad de sus inversiones? 
 
-## Formulacion matematica 
-### Variables de decisión
+### Formulacion matematica 
+#### Variables de decisión
 
 dolares invertidos en: creditos comerciales, bonos corporativos, acciones en oro, acciones en platino, bonos hipotecarios, prestamos para edificios
 $$x_1,…,x_6$$
 
 
-### Restricciones
+#### Restricciones
 
 **Presupuesto** 
 ("hasta cinco millones" → no es obligatorio invertir todo):  
@@ -989,11 +995,11 @@ $$ x1+x2 \geq 0.45 (x1+ \dots +x6) $$
 el riesgo de la cartera es un promedio ponderado por el monto invertido en cada opción — no puede pasar de 2.0:  
 
 $$\frac{1.7x_1+1.2x_2+3.7x_3+2.4x_4+2.0x_5+2.9x_6}{x_1+\dots+x_6} \leq 2.0$$
-## Funcion objetivo 
+### Funcion objetivo 
 $$max\ z= 0.07x_1 ​+ 0.10x_2 ​+ 0.19x_3 ​+ 0.12x_4 ​+ 0.08x_5​ + 0.14x_6​$$
 
-## Implementacion 
-#### codigo 
+### Implementacion 
+##### codigo 
 ```c
 var x1 >= 0;   # creditos comerciales
 var x2 >= 0;   # bonos corporativos
@@ -1026,7 +1032,7 @@ end;
 $$z = 520000$$
 ![[Pasted image 20260914104759.png]]
 
-# 11. Planificación del transporte en una empresa productora de aceitunas
+## 11. Planificación del transporte en una empresa productora de aceitunas
 
 
 Una empresa de Jaén tiene ==tres plantas== productoras de aceitunas, ubicadas en Jaén, Sevilla y
@@ -1051,15 +1057,15 @@ aceituna enviada por cada ruta, se muestra en la **Tabla 12**.
 	* Solo Sevilla o Almerı́a pueden hacer envı́os a La Coruña, pero nunca ambas. (requiere una variable binaria: condición disyuntiva)
 
 ---
-## Datos y supuestos
+### Datos y supuestos
 * 3 plantas 
 	* con una capacidad de produccion en kg para los prox 3 meses en Tabla 10
 * 4 centros de distribucion
 	* La demanda pronosticada en dichos centros para los próximos tres meses se presenta en la Tabla 11
 
 Determinar cuánto de esa producción debe enviarse de cada planta a cada centro de distribución
-## Formulacion matematica 
-### Variables de decisión
+### Formulacion matematica 
+#### Variables de decisión
 Produccion enviada desde la planta $i$ al centro de distribucion $j$
 $$x_{ij} \ \ \ \ \ [kg]$$
 Planta $i$:
@@ -1067,7 +1073,7 @@ $$i \ \epsilon \ \{1, 2, 3\} \ \ \ \text{(Jaen, Sevilla, Almeria)} $$
 
 Centros de distribucion $j$:
 $$j \ \epsilon \ \{1, 2, 3, 4\} \ \ \ \text{(Valencia, Madrid, Barcelona, Coruña)} $$
-### Restricciones
+#### Restricciones
 
 **Capacidad de produccion**
 Por planta $i$, en kg, para los proximos 3 meses
@@ -1082,14 +1088,14 @@ $$x_{i3} \ge 2000$$
 $$x_{i4} \ge 1500$$
 **No negatividad**
 $$x_{ij} >= 0 \ \ \ \forall \ \ \ i,j$$
-## Funcion objetivo base
+### Funcion objetivo base
 Determinar cuanta producción debe enviarse de cada planta a cada centro de distribución dado el costo unitario, en dólares por kilogramo de aceituna enviada.
 
 Es una matriz, podemos asignar $c_{ij}$ como el costo por kg $[\frac{\$}{kg}]$ de enviar el producto de la planta $i$ al centro $j$. Minimizando precios: 
 
 $$min \ z = \sum_{i=1}^3 \sum_{j=1}^4 c_{ij} \ x_{ij}  + 200 y_{sv}$$
 
-### Restricciones politicas 
+#### Restricciones politicas 
 * Al menos el 60 % de la producción total de Jaén ($i=1$) debe enviarse a Valencia ($j=1$). (restricción lineal: no requiere variables enteras) 
 
 $$\frac{ \text{enviadas de i=Jaen a j=valencia} }{ \text{enviadas de i=Jaen a todos los j} } \ge 0.6$$
@@ -1101,8 +1107,12 @@ $$\frac{ x_{11} }{ \sum_{j}^4 x_{1j} } \ge 0.6$$
 * Los envı́os de Sevilla a Valencia tendrán un costo fijo de $200. (requiere una [[variable binaria]]: el costo fijo se activa solo si se envı́a una cantidad positiva) 
 	* variable binaria nueva: $y_{sv}$
 	* restriccion:
-	$$x_{21} \le 6000 \ y_{sv}$$ nuevo termino en la funcion objetivo: 
-	$$+ 200 y_{sv}$$
+	
+    $$x_{21} \le 6000 \ y_{sv}$$ 
+    
+    nuevo termino en la funcion objetivo: 
+	
+    $$+ 200 y_{sv}$$
 	donde  $y_{sv} \ \epsilon \  \{0, 1\}$
 
 > [!example] Variables Binarias:  Condición disyuntiva
@@ -1116,8 +1126,8 @@ $$\frac{ x_{11} }{ \sum_{j}^4 x_{1j} } \ge 0.6$$
 		$$x_{24} \leq 1500z \ \ \ , \ \ \ x_{34} \leq 1500(1-z)$$
 
 
-## Implementacion 
-#### codigo 
+### Implementacion 
+##### codigo 
 ```c
 var x11 >= 0; var x12 >= 0; var x13 >= 0; var x14 >= 0;
 var x21 >= 0; var x22 >= 0; var x23 >= 0; var x24 >= 0;
