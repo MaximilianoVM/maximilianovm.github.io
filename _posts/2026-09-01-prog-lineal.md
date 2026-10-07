@@ -34,7 +34,7 @@ La empresa satisface como mı́nimo toda la demanda requerida, ya sea con sus pr
 
 
 ----
-### Datos y supuestos  
+### Datos y supuestos
 * 5 tipos de telas: 1, 2, 3, 4, 5
 * Se puede producir en 1 o mas de los 38 telares 
 * Ancho de 140 cm. 
@@ -53,10 +53,16 @@ La empresa satisface como mı́nimo toda la demanda requerida, ya sea con sus pr
 #### Variables de decision
 * Tengo 5 tipos de telas que producir y 2 tipos de telares donde lo puedo hacer 
 Metros de los distintos tipos de telas producidas por telar (+ las compradas) por mes: 
+
 $$J_1, J_2, J_3, J_4, J_5$$
+
+
 $$R_3, R_4, R_5$$
+
 $$C_1, C_2, C_3, C_4, C_5$$
+
 en unidades de $[\frac{m}{mes}]$
+
 #### Restricciones 
 ##### Demanda
 $$J_1+C_1 \geq 16500$$
