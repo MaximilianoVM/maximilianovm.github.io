@@ -505,16 +505,17 @@ $$\frac{elemento\ critico\ en\ C1\ para\ C}{elemento\ critico\ en\ C2\ para\ C} 
 | GCB      | 135                |
 | GCC      | 155                |
 
-$$ GCi\ producido\ [L]= \sum_k Ck_i = C1_A + C2_A $$ 
+$$\text{GCi producido [L]} = \sum_k Ck_i = C1_A + C2_A$$
 
-Funcion objetivo en unidades de dinero $: 
+Funcion objetivo en unidades de dinero:
 
-$$[L] * [ \frac{\$}{L} ]$$
+$$[\text{L}] \times \left[ \frac{\text{\$}}{\text{L}} \right]$$
 
-$$max\ z = 125*GCA + 135*GCB + 155*GCC$$
-en terminos de nuestras variables de decisión: 
-$$max\ z = 125*(C1_A+C2_A) + 135*(C1_B+C2_B) + 155*(C1_C+C2_C)$$
+$$\max z = 125 \cdot GCA + 135 \cdot GCB + 155 \cdot GCC$$
 
+en terminos de nuestras variables de decisión:
+
+$$\max z = 125 \cdot (C1_A + C2_A) + 135 \cdot (C1_B + C2_B) + 155 \cdot (C1_C + C2_C)$$
 
 ### Implementación
 #### Código
@@ -663,14 +664,14 @@ $$T, S, F, G$$
 
 #### Restricciones
 Capital inicial
-$$T+S+F+G= $200000$$
+$$T+S+F+G= \text{\$}200000$$
 * Regla 1: la tasa anual de rendimiento de la cartera debe ser de al menos 9 %.
-$$\frac{0.12T + 0.08S + 0.06F + 0.10G}{$200000} \geq 0.09 $$
+$$\frac{0.12T + 0.08S + 0.06F + 0.10G}{200000} \geq 0.09 $$
 * Regla 2: ningún valor puede representar más del 50 % de la inversión total en dólares.
-$$T\leq$200000/2$$
-$$S\leq$200000/2$$
-$$F\leq$200000/2$$
-$$G\leq $200000/2$$
+$$T\leq\text{\$}200000/2$$
+$$S\leq\text{\$}200000/2$$
+$$F\leq\text{\$}200000/2$$
+$$G\leq \text{\$}200000/2$$
 #### Función objetivo 
 Minimizar el reisgo
 $$min\ z = 0.10T + 0.07S + 0.05F + 0.08G$$
@@ -761,13 +762,13 @@ Capital $ a invertir en cada fondo
 
 * Fondos de Inversión Garantizados: $G$
 * Fondos Mixtos: $M$
-* Bolsa de Valores *(invisible)*: $\$12000 - G -M$
+* Bolsa de Valores *(invisible)*: $\text{\$}12000 - G -M$
 $$G, M$$
 #### Restricciones
 *  $12,000 para invertir
-  $$G + M \leq $12,000$$
+  $$G + M \leq \text{\$}12,000$$
  * no invertir más de $2,000 en la Bolsa de Valores.
-  $$\$12000 - G -M \leq $ 2,000$$
+  $$\$12000 - G -M \leq \text{\$} 2,000$$
 * invertir al menos tres veces más en fondos de inversión garantizados que en fondos mixtos.
 $$\frac{G}{M} \geq 3$$
 #### Función objetivo 
@@ -979,7 +980,7 @@ $$ x_1 + x_2 + x_3 + x_4 + x_5 + x_6 \leq 5,000,000$$
 **Diversificación máxima** 
 (ninguna opción $> 25\%$ del total invertido, el "total" es la suma de lo que si se invierte, no siempre 5M, ya que el presupuesto es "hasta"):  
 
-$$ xi≤0.25(x1+x2+x3+x4+x5+x6) $$ , $i=1,…,6$ 
+$$x_i \le 0.25 (x_1 + x_2 + x_3 + x_4 + x_5 + x_6), \quad i=1,\dots,6$$
 
 **Mínimo en metales preciosos** 
 oro + platino ≥ 30% del total:  
@@ -1106,14 +1107,14 @@ $$\frac{ x_{11} }{ \sum_{j}^4 x_{1j} } \ge 0.6$$
 
 * Los envı́os de Sevilla a Valencia tendrán un costo fijo de $200. (requiere una [[variable binaria]]: el costo fijo se activa solo si se envı́a una cantidad positiva) 
 	* variable binaria nueva: $y_{sv}$
-	* restriccion:
-	
-    $$x_{21} \le 6000 \ y_{sv}$$ 
-    
-    nuevo termino en la funcion objetivo: 
-	
+    * restriccion:
+
+    $$x_{21} \le 6000 \cdot y_{sv}$$
+
+    nuevo termino en la funcion objetivo:
+
     $$+ 200 y_{sv}$$
-	donde  $y_{sv} \ \epsilon \  \{0, 1\}$
+    donde $y_{sv} \in \{0, 1\}$
 
 > [!example] Variables Binarias:  Condición disyuntiva
 > Como lo voy a usar? 
