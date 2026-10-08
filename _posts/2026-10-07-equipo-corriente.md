@@ -1,6 +1,6 @@
 ---
 title: "Proyectos en equipo: Como me pongo al corriente?"
-date: 2026-09-07 03:47:00 -0700
+date: 2026-10-07 03:47:00 -0700
 categories: [Trabajo en Equipo]
 tags: [python, jupyter, proyectos]    # TAG names should always be lowercase
 math: true
