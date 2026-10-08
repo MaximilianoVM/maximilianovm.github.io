@@ -89,7 +89,7 @@ $[\frac{\$}{m}][m]$
 $$min\ z = 2.66J_1 + 2.55J_2 + 2.86 C_1 + 2.7C_2 + \\ 2.49[J_3+R_3] + 2.6C_3 + 2.51[J_4+R_4] + \\ 2.7C_4 + 2.5[J_5 + R_5] + 2.7C_5$$
 
 ### Implementación 
-##### código 
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
 
 ```c
 # =============== Variables de decision =============
@@ -255,7 +255,8 @@ $$1.05A_5 + 1.13B_4 + 1.28C_3 + 1.4D_2 \geq 26000$$
 $$min\ z = A_1 + B_1 + C_1 + D_1$$
 
 ### Implementación 
-##### código 
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
+
 ```c
 # =============== Variables de decision =============
 
@@ -410,7 +411,8 @@ $[\frac{min}{u}][u]$
 $$3x_1 + 2x_2 + 1x_3 + 2x_4 \leq 380\ \text{mins}$$
 
 ### Implementación 
-##### código 
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm) 
+
 ```c
 # =============== Variables de decision =============
 # unidades del producto i a producir por dia
@@ -552,7 +554,8 @@ en terminos de nuestras variables de decisión:
 $$\max z = 125 \cdot (C1_A + C2_A) + 135 \cdot (C1_B + C2_B) + 155 \cdot (C1_C + C2_C)$$
 
 ### Implementación
-#### Código
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
+
 ```
 var C1_A >= 0;
 var C1_B >= 0;
@@ -647,7 +650,7 @@ $$\frac{1}{2200} (S + V) \leq 1 \ \text{día efectivo} $$
 $$max\ z = 3000V + 2100S$$
 
 ## Implementación
-### Código
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
 
 ```
 var S >= 0;
@@ -755,7 +758,7 @@ $$max\ z = 0.12T + 0.08S + 0.06F + 0.10G$$
 y no haría falta la regla 1 ya que sería redundante, maximizar el rendimiento automáticamente garantiza que sea al menos 9%.
 
 ### Implementación
-#### Código
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
 ```
 var T >= 0, <= 100000;
 var S >= 0, <= 100000;
@@ -894,7 +897,7 @@ Minimizando costos
 $[1k \ \ m^2] [\frac{\$}{1k \ m^2}]$
 $$min \ z = 280(E1 + F1 + M1) + 450(E2 + F2) + 600E3$$
 ### Implementación
-#### Código
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
 ```c
 var E1 >= 0;
 var E2 >= 0;
@@ -966,7 +969,7 @@ $[\frac{\$}{kg}][kg]$
 $$max \ z = 0.25A + 0.40 C$$
 
 ### Implementación
-#### Código
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
 ```c
 var x1 >= 0;
 var x2 >= 0;
@@ -1052,7 +1055,7 @@ $$\frac{1.7x_1+1.2x_2+3.7x_3+2.4x_4+2.0x_5+2.9x_6}{x_1+\dots+x_6} \leq 2.0$$
 $$max\ z= 0.07x_1 ​+ 0.10x_2 ​+ 0.19x_3 ​+ 0.12x_4 ​+ 0.08x_5​ + 0.14x_6​$$
 
 ### Implementacion 
-##### codigo 
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm) 
 ```c
 var x1 >= 0;   # creditos comerciales
 var x2 >= 0;   # bonos corporativos
@@ -1180,7 +1183,7 @@ $$\frac{ x_{11} }{ \sum_{j}^4 x_{1j} } \ge 0.6$$
 
 
 ### Implementacion 
-##### codigo 
+##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm) 
 ```c
 var x11 >= 0; var x12 >= 0; var x13 >= 0; var x14 >= 0;
 var x21 >= 0; var x22 >= 0; var x23 >= 0; var x24 >= 0;
