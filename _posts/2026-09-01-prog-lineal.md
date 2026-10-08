@@ -9,6 +9,7 @@ image:
   alt: prog_lineal.
 comments: true
 ---
+
 ## 1. Planeación de la producción en una empresa textil
 
 Una empresa textil produce cinco tipos de telas. Cada tela puede tejerse en uno o más de los 38 telares con que cuenta la industria. El Departamento de Ventas ya pronosticó la demanda del próximo mes; ese pronóstico aparece en la **Tabla 1**, junto con el precio de venta, el costo
