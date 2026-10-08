@@ -685,7 +685,8 @@ ORGASA tiene una cartera de inversiones en acciones, bonos y otros instrumentos 
 Actualmente dispone de $200,000 que deben destinarse a nuevas inversiones. Las cuatro
 alternativas que ORGASA está considerando se muestran en la **Tabla 6.**
 
-TABLA 6
+
+
 
 La medida de riesgo indica la incertidumbre asociada a cada acción en cuanto a su capacidad
 para alcanzar el rendimiento anual previsto: a *mayor valor, mayor riesgo.*
@@ -700,8 +701,13 @@ ORGASA ha establecido las siguientes condiciones para sus inversiones:
 máximo, ¿cómo se modificarı́a el modelo anterior?
 
 
+| Detalles financieros | Telefónita | Sankander | Ferrofial | Gamefa |
+| :--- | :---: | :---: | :---: | :---: |
+| Precio por acción ($) | 100 | 50 | 80 | 40 |
+| Tasa de rendimiento anual | 0.12 | 0.08 | 0.06 | 0.10 |
+| Medida de riesgo por $ invertido | 0.10 | 0.07 | 0.05 | 0.08 |
 
-_____________________________________________________________
+*Tabla 6: Datos de las inversiones.*
 
 ### Datos y supuestos  
 * Dispone de $200000 
