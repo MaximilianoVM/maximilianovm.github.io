@@ -775,7 +775,7 @@ $$ z = 14666.6666667 $$
 | G | Real | 100000 |
 
 
-## b) 
+### b) 
 Cambia la funcion objetivo por una que maximice el rendimiento 
 $$max\ z = 0.12T + 0.08S + 0.06F + 0.10G$$
 y no haría falta la regla 1 ya que sería redundante, maximizar el rendimiento automáticamente garantiza que sea al menos 9%.
