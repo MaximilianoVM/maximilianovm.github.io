@@ -717,7 +717,9 @@ máximo, ¿cómo se modificarı́a el modelo anterior?
 ### Formulacion matematica 
 ### a) 
 #### Variables de decision 
-**Dinero invertido por acción** $[\ \$\ ]$
+
+**Dinero invertido por acción** $[ \$ ]$
+
 
 $$T, S, F, G$$
 
@@ -765,7 +767,13 @@ Optimal objective value
 
 $$ z = 14666.6666667 $$
 
-![[Pasted image 20260909111033.png]]
+| Variable | Type | Value |
+| :---: | :---: | :---: |
+| T | Real | 33333.3333333 |
+| S | Real | 0 |
+| F | Real | 66666.6666667 |
+| G | Real | 100000 |
+
 
 ## b) 
 Cambia la funcion objetivo por una que maximice el rendimiento 
@@ -791,12 +799,18 @@ Optimal objective value
 
 $$ z= 22000 $$
 
+Resultados que rroja el solver: 
 
-![[Pasted image 20260909111123.png]]
+| Variable | Type | Value |
+| :---: | :---: | :---: |
+| T | Real | 100000 |
+| S | Real | 0 |
+| F | Real | 0 |
+| G | Real | 100000 |
 
 ## 7. Fondos de inversión
 
-Un pequeño inversionista dispone de $12,000 para invertir y puede elegir entre tres fondos
+Un pequeño inversionista dispone de \$12,000 para invertir y puede elegir entre tres fondos
 distintos. Los fondos de inversión garantizados ofrecen una tasa de rendimiento esperada del
 7 %; los fondos mixtos, en los que una parte del capital está garantizada, tienen una tasa de
 rendimiento esperada del 8 %; mientras que una inversión en la Bolsa de Valores implica una
