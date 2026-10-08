@@ -5,7 +5,7 @@ categories: [Metodos de Optimizacion, Programación Lineal]
 tags: [python]    # TAG names should always be lowercase
 math: true
 image:
-  path: assets/img/cimat_1.jpeg
+  path: assets/img/ags-centro.jpeg
   alt: prog_lineal.
 comments: true
 ---
