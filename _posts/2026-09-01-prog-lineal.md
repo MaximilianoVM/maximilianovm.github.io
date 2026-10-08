@@ -846,7 +846,7 @@ Capital \$ a invertir en cada fondo
 
 * Fondos de Inversión Garantizados: $G$
 * Fondos Mixtos: $M$
-* Bolsa de Valores *(invisible)*: $\text{\$}12000 - G -M$
+* Bolsa de Valores *(invisible)*: $\text{\$}12000-G-M$
 
 $$G, M$$
 
