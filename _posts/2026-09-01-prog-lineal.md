@@ -408,8 +408,11 @@ $$x_1, x_2, x_3, x_4$$
 cada una pasa por una maquina y luego la otra. 
 ### Restricciones 
 de tiempo 
+
 $$2x_1 + 3x_2 + 4x_3 + 2x_4 \leq 500\ \text{mins}$$
+
 $[\frac{min}{u}][u]$
+
 $$3x_1 + 2x_2 + 1x_3 + 2x_4 \leq 380\ \text{mins}$$
 
 ### Implementación 
@@ -495,10 +498,12 @@ _________________
 | GCA      | 125                |
 | GCB      | 135                |
 | GCC      | 155                |
+
+
 ### Formulacion matematica 
 #### Variables de decision 
 Cuantos litros de cada componente (C1, C2) se destina a cada producto, ya que cada producto es una mezcla. 
-* renombramos: $GCA$ -> $A$, $GCB$ -> $B$, $GCC$ -> $C$
+* renombramos: $GCA$ -> $A$ ; $GCB$ -> $B$ ; $GCC$ -> $C$
 
 $$C1_A, C1_B, C1_C$$, $$C2_A, C2_B, C2_C$$
 
@@ -520,9 +525,9 @@ $$C1_B + C2_B \geq 7,000 \ l$$
 $$C1_C + C2_C \geq 9,000 \ l$$
 
 ##### Proporciones
-* C1 y C2, tienen una proporción de elemento crítico de 0.4 y 0.2, respectivamente (por litro)
-		elemento critico en C1 = $0.4*C1$    $[L]$
-		elemento critico en C2 = $0.2*C2$    $[L]$
+* C1 y C2, tienen una proporción de elemento crítico de $0.4$ y $0.2$, respectivamente (por litro)
+		elemento critico en C1 = $0.4*C1$,    $[L]$
+		elemento critico en C2 = $0.2*C2$,    $[L]$
 
 * GCA debe contener una proporción de al menos 0.3 del elemento crıtico.  
 
@@ -537,11 +542,13 @@ $$\frac{Elemento\ critico}{Total}=\frac{0.4*C1_B + 0.2*C2_B}{C1_B + C2_B} \leq 0
 $$\frac{elemento\ critico\ en\ C1\ para\ C}{elemento\ critico\ en\ C2\ para\ C} = \frac{C1_C}{C2_C} \geq0.3$$
 
 #### Función Objetivo (En base a ganancias)
+
 | producto | ganancia por litro |
 | -------- | ------------------ |
 | GCA      | 125                |
 | GCB      | 135                |
 | GCC      | 155                |
+
 
 $$\text{GCi producido [L]} = \sum_k Ck_i = C1_A + C2_A$$
 
