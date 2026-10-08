@@ -208,6 +208,7 @@ Los productos C y D implican riesgo, por lo cual Saúl no quiere destinarles en 
 Inversión en $ por acción por año 
 
 **año 1**
+
 $$A_1, B_1, C_1, D_1$$
 
 $$A_2, B_2, C_2, D_2$$
@@ -369,9 +370,9 @@ El valor óptimo de la función objetivo obtenido por el solver es **$z = 71,431
 - **Cumplimiento del límite de riesgo:** En el año 1, la suma invertida en los instrumentos riesgosos $C_1 + D_1$ asciende a $\$1,265.79 + \$13,020.52 = \$14,286.31$, lo cual representa exactamente el 20% de la inversión inicial total ($\$71,431.58 \times 0.20 = \$14,286.316$), saturando por completo la restricción impuesta por Saúl.
     
 - **Generación de los requerimientos de capital:**
-    - _Año 3 ($20,000 requeridos):_ El retorno proveniente de $B_1$ ($1.13 \times \$35,674.78 = \$40,312.50$) más el de $A_2$ genera un total de $40,312.50. Se destinan $20,000 al compromiso de Susana y los $20,312.50 remanentes se reinvierten en $C_3$.
-    - _Año 4 ($22,000 requeridos):_ El retorno de $C_1$ ($1.28 \times \$1,265.79 = \$1,620.21$) sumado al retorno de $B_2$ ($1.13 \times \$18,035.21 = \$20,379.79$) genera exactamente los $22,000 requeridos para este período.
-    - _Año 5 ($24,000 requeridos):_ El retorno de $C_2$ ($1.28 \times \$4,508.80 = \$5,771.27$) sumado al vencimiento de 4 años del producto $D_1$ ($1.40 \times \$13,020.52 = \$18,228.73$) cubre exactamente los $24,000 necesarios.
+    - _Año 3 (\$20,000 requeridos):_ El retorno proveniente de $B_1$ ($1.13 \times \$35,674.78 = \$40,312.50$) más el de $A_2$ genera un total de $40,312.50. Se destinan \$20,000 al compromiso de Susana y los \$20,312.50 remanentes se reinvierten en $C_3$.
+    - _Año 4 (\$22,000 requeridos):_ El retorno de $C_1$ ($1.28 \times \$1,265.79 = \$1,620.21$) sumado al retorno de $B_2$ ($1.13 \times \$18,035.21 = \$20,379.79$) genera exactamente los \$22,000 requeridos para este periodo.
+    - _Año 5 (\$24,000 requeridos):_ El retorno de $C_2$ ($1.28 \times \$4,508.80 = \$5,771.27$) sumado al vencimiento de 4 años del producto $D_1$ ($1.40 \times \$13,020.52 = \$18,228.73$) cubre exactamente los \$24,000 necesarios.
     - _Año 6 ($\ge \$26,000$ requeridos):_ La maduración del producto $C_3$ contratado en el año 3 ($1.28 \times \$20,312.50 = \$26,000$) satisface por completo la meta final de gasto.
 
 
