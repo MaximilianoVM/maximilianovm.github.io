@@ -826,7 +826,7 @@ de decisión.
 
 ---
 ### Datos y supuestos  
-*  $12,000 para invertir
+*  \$12,000 para invertir
 * tres fondos distintos.
 * Los fondos de inversión **garantizados** ofrecen una tasa de rendimiento esperada del 7 %; 
 * los fondos **mixtos**, en los que una parte del capital está garantizada, tienen una tasa de rendimiento esperada del 8 %; 
@@ -842,22 +842,34 @@ de decisión.
 
 ### Formulacion matematica 
 #### Variables de decision 
-Capital $ a invertir en cada fondo
+Capital \$ a invertir en cada fondo
 
 * Fondos de Inversión Garantizados: $G$
 * Fondos Mixtos: $M$
 * Bolsa de Valores *(invisible)*: $\text{\$}12000 - G -M$
+
 $$G, M$$
+
 #### Restricciones
-*  $12,000 para invertir
+
+*  \$12,000 para invertir
+
   $$G + M \leq \text{\$}12,000$$
- * no invertir más de $2,000 en la Bolsa de Valores.
-  $$\$12000 - G -M \leq \text{\$} 2,000$$
+
+ * no invertir más de \$2,000 en la Bolsa de Valores.
+
+  $$\text{\$}12000 - G -M \leq \text{\$} 2,000$$
+
 * invertir al menos tres veces más en fondos de inversión garantizados que en fondos mixtos.
+
 $$\frac{G}{M} \geq 3$$
+
 #### Función objetivo 
+
 ¿cuáles son los montos óptimos de inversión?
+
 $$max \ z = 0.07G + 0.08M + 0.12(12000 - G -M)$$
+
 ### Implementación
 #### Código
 ```
@@ -877,8 +889,10 @@ Optimal objective value
 
 $$ z= 965 $$
 
-![[Pasted image 20260909111647.png]]
-
+| Variable | Type | Value |
+| :---: | :---: | :---: |
+| G | Real | 7500 |
+| M | Real | 2500 |
 
 ## 8. Renta de almacenes
 
