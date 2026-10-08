@@ -209,6 +209,7 @@ Inversión en $ por acción por año
 
 **año 1**
 
+
 $$A_1, B_1, C_1, D_1$$
 
 $$A_2, B_2, C_2, D_2$$
