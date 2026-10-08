@@ -900,7 +900,12 @@ $$ z= 965 $$
 Una empresa se ha dado cuenta de que no tendrá suficiente espacio de almacenamiento
 durante los próximos **tres meses**. Los requerimientos adicionales de almacenamiento para ese
 periodo se muestran en la Tabla 7.
-![[Pasted image 20260908213813.png]]
+
+| Mes | Enero | Febrero | Marzo |
+| :--- | :---: | :---: | :---: |
+| Espacio requerido (1,000 m²) | 25 | 10 | 20 |
+
+*Tabla 7: Requerimientos adicionales de espacio de almacenamiento.*
 
 Para cubrirlos, la empresa planea rentar espacio adicional a corto plazo. **Al inicio de cada**
 **mes puede rentar cualquier cantidad de espacio por cualquier número de meses**, y puede
@@ -909,7 +914,12 @@ Por ejemplo, durante el primer mes puede rentar 20,000 m2 por dos meses y, adem�
 m2 por un mes. También puede contratar nuevas rentas antes de que venzan las anteriores.
 Los costos por cada 1,000 m2 de espacio rentado, según la duración del contrato, se muestran
 en la Tabla 8.
-![[Pasted image 20260908213827.png]]
+
+| Duración de la renta | 1 mes | 2 meses | 3 meses |
+| :--- | :---: | :---: | :---: |
+| Costo ($ por 1,000 m²) | 280 | 450 | 600 |
+
+*Tabla 8: Costos de renta.*
 
 a) Construya un modelo de programación lineal cuya solución proporcione una polı́tica de
 renta que cubra los requerimientos de espacio a un costo mı́nimo.
@@ -919,28 +929,45 @@ renta que cubra los requerimientos de espacio a un costo mı́nimo.
 *  Al inicio de cada mes puede rentar cualquier cantidad de espacio por cualquier número de meses
 * puede contratar de manera independiente distintas cantidades de espacio con distintas duraciones.
 * puede contratar nuevas rentas antes de que venzan las anteriores
+
 ### Formulacion matematica 
+
 #### Variables de decision
+
 Miles de $m^2$ rentados en un mes dado (Enero, Febrero, Marzo) durante cierta cantidad de meses (1, 2, 3). 
 En $[1k \ \ m^2]$:
+
 $$E1, E2, E3$$
+
 $$F1, F2$$
+
 $$M1$$
+
 #### Restricciones
 De espacio 
 * Enero: lo cubren los contratos que empiezan en enero, de cualquier duración
+
 $$E1+ E2+ E3 \geq 25 \ m^2$$
+
 * Febrero: lo cubren E2 y E3​ (contratos de enero que duran ≥2 meses, así que alcanzan febrero), más los que empiezan en febrero:
+
 $$E2 + E3 + F1 + F2 \geq 10 \ m^2$$
+
 * Marzo: lo cubren E3 (hechos en enero que llegan hasta marzo), F2 de febrero que llega hasta marzo y los iniciados el mismo marzo (solo M1). 
+
 $$E3 + F2 + M1 \geq 20 \ m^2$$
 
 #### Funcion objetivo 
 Minimizando costos 
+
 $[1k \ \ m^2] [\frac{\$}{1k \ m^2}]$
+
 $$min \ z = 280(E1 + F1 + M1) + 450(E2 + F2) + 600E3$$
+
 ### Implementación
+
 ##### código en [Solver Online](https://online-optimizer.appspot.com/?model=builtin:default.modm)
+
 ```c
 var E1 >= 0;
 var E2 >= 0;
@@ -957,11 +984,20 @@ subject to c13:   E3 + F2 + M1 >= 20;
 
 end;
 ```
+
 Optimal objective value
 
 $$z = 13000$$
 
-![[Pasted image 20260914011619.png]]
+| Variable | Type | Value |
+| :---: | :---: | :---: |
+| E1 | Real | 15 |
+| E2 | Real | 0 |
+| E3 | Real | 10 |
+| F1 | Real | 0 |
+| F2 | Real | 0 |
+| M1 | Real | 10 |
+
 
 ## 9. Planeación de la producción para un fabricante de alambre
 
