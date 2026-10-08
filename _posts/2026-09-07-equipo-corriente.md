@@ -10,9 +10,19 @@ image:
 comments: true
 ---
 
-En lo personal, me parece un uso adecuado de  modelos de lenguaje tales como Claude, Gemini o Google Notebooks. 
+* Desde Ags.
+* Ya tengo escritorio
+
+* Comandos ejecutados desde la terminal en Linux Mint Cinnamon. 
+* Pendiente buscar equivalentes en Windows y Mac. 
+* Pendiente describir instalaciones necesarias.
+
+
+Me parece un uso adecuado de  modelos de lenguaje tales como Claude, Gemini o Google Notebooks. 
+
 Ya que, idealmente, nuestro codigo no contiene informacion sensible sobre los datos que trata, podemos darnos la libertad de proveer la estructura del proyecto. 
-En lo personal recomiendo Google Notebooks debido a su natualeza contenida dentro de las fuentes proveídas. En este caso, los archivos -no sensibles- de nuestro proyecto. 
+
+Recomiendo Google Notebooks debido a su natualeza contenida dentro de las fuentes proveídas. En este caso, los archivos -no sensibles- de nuestro proyecto. 
 # 1. Abstracción del proyecto
 Con el objetivo de ahorrar tokens (en el caso de Claude, por ejemplo) o garantizar compatibilidad de archivos, lo mas adecuado es una fotografía tranversal del estado actual del proyecto en formato texto (se aceptan sugerencias alternativas). Para codigo en distintos tipos de archivos `.py`, `.ipynb`, `R`, etc. lo mas conveniente es una equivalencia en `.txt` o `.pdf`, para esto, nos apoyaremos de dos herramientas: 
 ### Para los notebooks `.ipynb`
